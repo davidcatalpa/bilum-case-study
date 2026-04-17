@@ -255,11 +255,11 @@ body.rail-inverted .rail__item.is-active .rail__dot { background: var(--cream); 
   position: absolute;
   inset: -6%;
   background-image:
-    linear-gradient(90deg, rgba(28,25,22,0.96) 0%, rgba(28,25,22,0.75) 38%, rgba(28,25,22,0.3) 72%, rgba(28,25,22,0.15) 100%),
-    linear-gradient(180deg, rgba(28,25,22,0.15), rgba(28,25,22,0.55)),
-    url("assets/hero.jpg");
+    linear-gradient(90deg, rgba(28,25,22,0.92) 0%, rgba(28,25,22,0.72) 42%, rgba(28,25,22,0.28) 75%, rgba(28,25,22,0.12) 100%),
+    linear-gradient(180deg, rgba(28,25,22,0.08), rgba(28,25,22,0.5)),
+    url("assets/dird-team.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: 60% center;
   transform: scale(1.08);
   animation: kenburns 18s ease-in-out infinite alternate;
 }
@@ -267,8 +267,8 @@ body.rail-inverted .rail__item.is-active .rail__dot { background: var(--cream); 
   .hero__photo {
     background-image:
       linear-gradient(180deg, rgba(28,25,22,0.55) 0%, rgba(28,25,22,0.82) 60%, rgba(28,25,22,0.92) 100%),
-      url("assets/hero.jpg");
-    background-position: 70% center;
+      url("assets/dird-team.jpg");
+    background-position: 62% center;
   }
 }
 @keyframes kenburns {
@@ -586,8 +586,8 @@ section { position: relative; }
 .approach__photo {
   position: absolute;
   inset: -5%;
-  background-image: linear-gradient(180deg, rgba(28,25,22,0.1), rgba(28,25,22,0.25)),
-                    url("assets/approach.jpg");
+  background-image: linear-gradient(180deg, rgba(28,25,22,0.1), rgba(28,25,22,0.35)),
+                    url("assets/workshop.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -1400,6 +1400,252 @@ section { position: relative; }
   font-weight: 600;
   color: var(--ochre);
   margin-right: .5rem;
+}
+
+/* ==========================================================================
+   Full-width image breaks (editorial banner moments)
+   ========================================================================== */
+.image-break {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--ink);
+}
+.image-break--aerial {
+  aspect-ratio: 16 / 7;
+  max-height: 640px;
+}
+.image-break--codesign {
+  aspect-ratio: 16 / 8;
+  max-height: 560px;
+}
+.image-break__photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.04);
+  transition: transform 0.6s var(--ease);
+}
+.image-break--aerial .image-break__photo {
+  background-image:
+    linear-gradient(180deg, rgba(28,25,22,0.08), rgba(28,25,22,0.48)),
+    url("assets/png-aerial.jpg");
+}
+.image-break--codesign .image-break__photo {
+  background-image:
+    linear-gradient(90deg, rgba(28,25,22,0.15), rgba(28,25,22,0.55)),
+    url("assets/codesign-wall.jpg");
+  background-position: center center;
+}
+.image-break__caption {
+  position: absolute;
+  left: clamp(1rem, 5vw, 3rem);
+  bottom: clamp(1.25rem, 4vw, 2.25rem);
+  max-width: 40ch;
+  color: var(--cream);
+  z-index: 2;
+}
+.image-break__eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(246,239,230,0.75);
+  margin-bottom: .5rem;
+}
+.image-break__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  margin: 0;
+  color: var(--cream);
+  max-width: 32ch;
+}
+
+/* ==========================================================================
+   Product — "In practice" photo strip above the UI placeholders
+   ========================================================================== */
+.product__practice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: 0 0 clamp(2rem, 4vh, 3rem);
+}
+.product__practice figure { margin: 0; }
+.product__practice-photo {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.product__practice-photo--a { background-image: url("assets/user-study.jpg"); }
+.product__practice-photo--b { background-image: url("assets/user-desk.jpg"); }
+.product__practice-caption {
+  margin-top: .75rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.product__practice-caption strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: .35rem;
+}
+@media (max-width: 720px) { .product__practice { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Rollout — Nuku photo on the final stage card
+   ========================================================================== */
+.rollout__stage-photo {
+  margin-top: 1rem;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-image: url("assets/nuku-district.jpg");
+  background-size: cover;
+  background-position: center top;
+  border-radius: var(--radius);
+}
+
+/* ==========================================================================
+   Confidence — media figure (MP speech, auto-placed below marginalia quotes)
+   ========================================================================== */
+.confidence__media {
+  grid-column: 2;
+  align-self: start;
+  margin: 2rem 0 0;
+}
+.confidence__media-photo {
+  aspect-ratio: 4 / 5;
+  background-image: url("assets/mp-speech.jpg");
+  background-size: cover;
+  background-position: center top;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.confidence__media-caption {
+  margin-top: .75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 32ch;
+}
+.confidence__media-caption strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: .35rem;
+}
+@media (max-width: 960px) {
+  .confidence__media { grid-column: 1; grid-row: auto; margin-top: 2rem; }
+  .confidence__media-photo { max-width: 420px; }
+}
+
+/* ==========================================================================
+   Embedding — handover ceremony showpiece
+   ========================================================================== */
+.embedding__moment {
+  margin: clamp(3rem, 6vh, 4rem) 0 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.embedding__moment-photo {
+  aspect-ratio: 4 / 3;
+  background-image: url("assets/handover.jpg");
+  background-size: cover;
+  background-position: center center;
+  border-radius: var(--radius-lg);
+}
+.embedding__moment-body h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  max-width: 18ch;
+}
+.embedding__moment-body p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 42ch;
+}
+.embedding__moment-body .eyebrow { margin-bottom: .5rem; }
+@media (max-width: 860px) {
+  .embedding__moment { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Engagement — users photo pair
+   ========================================================================== */
+.engagement__photos {
+  grid-column: 1 / -1;
+  margin-top: clamp(3rem, 6vh, 4rem);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+.engagement__photo {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center center;
+  border-radius: var(--radius-lg);
+}
+.engagement__photo--a { background-image: url("assets/bilum-polos.jpg"); background-position: center 35%; }
+.engagement__photo--b { background-image: url("assets/outdoor-training.jpg"); }
+@media (max-width: 720px) { .engagement__photos { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Method — DIRD officer aside portrait
+   ========================================================================== */
+.method__aside {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 340px;
+}
+.method__aside-photo {
+  aspect-ratio: 4 / 5;
+  background-image: url("assets/dird-officer.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  border-radius: var(--radius-lg);
+}
+.method__aside-caption {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  font-style: italic;
+}
+.method__aside-caption strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: .35rem;
 }
 
 /* ==========================================================================
