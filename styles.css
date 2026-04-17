@@ -131,23 +131,32 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem clamp(1rem, 3vw, 2rem);
+  padding: 0.85rem clamp(1rem, 3vw, 2rem);
   z-index: 60;
-  mix-blend-mode: difference;
-  color: var(--cream);
+  color: var(--ink);
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   pointer-events: none;
 }
 .site-chrome > * { pointer-events: auto; }
-.site-chrome__brand { display: inline-flex; gap: .5rem; align-items: center; text-decoration: none; }
-.site-chrome__mark {
-  display: inline-block;
-  width: 18px; height: 18px;
-  font-size: 22px; line-height: 18px;
+.site-chrome__brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
 }
-.site-chrome__wordmark { font-family: var(--font-serif); font-size: 1rem; }
+.site-chrome__logo {
+  display: block;
+  height: clamp(26px, 3.2vw, 34px);
+  width: auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+/* Nav + CTA + logo tone switching for dark sections (hero, challenge, legacy) */
+body.rail-inverted .site-chrome { color: var(--cream); }
+body.rail-inverted .site-chrome__cta { border-color: var(--cream); color: var(--cream); }
+body.rail-inverted .site-chrome__logo { box-shadow: none; }
 .site-chrome__nav { display: inline-flex; gap: .55rem; align-items: center; opacity: 0.85; }
 .site-chrome__dot { opacity: 0.5; }
 .site-chrome__eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
