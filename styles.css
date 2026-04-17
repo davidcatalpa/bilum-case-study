@@ -244,6 +244,7 @@ body.rail-inverted .rail__item.is-active .rail__dot { background: var(--cream); 
   min-height: 100vh;
   padding: clamp(7rem, 18vh, 10rem) clamp(1rem, 5vw, 3rem) clamp(3rem, 8vh, 6rem);
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-content: end;
   gap: 1.5rem;
   overflow: hidden;
@@ -287,28 +288,52 @@ body.rail-inverted .rail__item.is-active .rail__dot { background: var(--cream); 
 }
 .hero__meta {
   position: relative;
-  display: inline-flex; align-items: center; gap: .9rem;
+  display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: .9rem; row-gap: .35rem;
   color: var(--cream);
 }
 .hero__meta .eyebrow { color: var(--cream); }
 .hero__meta .eyebrow--muted { color: rgba(246,239,230,0.55); }
 .hero__meta .eyebrow--muted::before { content: "·"; margin-right: .9rem; opacity: .5; }
 
+.hero__attribution {
+  position: relative;
+  display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: .9rem; row-gap: .35rem;
+  margin-top: -.5rem;
+}
+.hero__attribution .eyebrow { color: var(--ochre); }
+.hero__attribution .eyebrow--muted { color: rgba(246,239,230,0.72); }
+.hero__attribution .eyebrow--muted::before { content: "·"; margin-right: .9rem; opacity: .5; color: rgba(246,239,230,0.55); }
+
 .hero__title {
   position: relative;
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(2.25rem, 7.5vw, 7rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.9rem, 4.6vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   margin: 0;
-  max-width: 18ch;
+  max-width: min(22ch, 100%);
+  min-width: 0;
   overflow-wrap: break-word;
   word-break: normal;
   hyphens: auto;
 }
+@media (max-width: 860px) {
+  .hero__title {
+    font-size: clamp(1.75rem, 5.4vw, 2.6rem);
+    line-height: 1.14;
+    max-width: 100%;
+  }
+}
 @media (max-width: 480px) {
-  .hero__title { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; }
+  .hero__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.18;
+    max-width: 100%;
+    word-break: break-word;
+  }
 }
 .hero__title em {
   font-style: italic;
