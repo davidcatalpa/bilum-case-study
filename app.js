@@ -185,14 +185,33 @@
       });
     }
 
+    // ---------- Hero: hand-drawn em underline draw-in ----------
+    if (hasGSAP && !prefersReduced) {
+      const emPath = document.querySelector('.hero__em-underline path');
+      if (emPath) {
+        try {
+          const len = emPath.getTotalLength();
+          emPath.style.strokeDasharray = len;
+          emPath.style.strokeDashoffset = len;
+          gsap.to(emPath, {
+            strokeDashoffset: 0,
+            duration: 1.4,
+            ease: 'power2.inOut',
+            delay: 0.9,
+          });
+        } catch (e) { /* ignore */ }
+      }
+    }
+
     // ---------- Scroll progress rail + active chapter ----------
     const rail = document.querySelector('.rail');
     const railItems = rail ? Array.from(rail.querySelectorAll('.rail__item')) : [];
     const railIndex = new Map(railItems.map((li) => [li.dataset.rail, li]));
     const darkSections = new Set(['hero', 'challenge', 'legacy']);
+    const topbar = document.querySelector('.topbar');
 
     if (rail && hasGSAP) {
-      // Progress bar fill
+      // Progress bar fill (rail + topbar share the same progress value)
       gsap.to(rail, {
         ease: 'none',
         scrollTrigger: {
@@ -200,7 +219,9 @@
           end: 'max',
           scrub: true,
           onUpdate: (self) => {
-            rail.style.setProperty('--rail-progress', (self.progress * 100).toFixed(2) + '%');
+            const pct = (self.progress * 100).toFixed(2) + '%';
+            rail.style.setProperty('--rail-progress', pct);
+            if (topbar) topbar.style.setProperty('--topbar-progress', pct);
           },
         },
       });
@@ -212,14 +233,18 @@
           trigger: section,
           start: 'top 40%',
           end: 'bottom 40%',
-          onToggle: (self) => {
-            if (self.isActive) {
-              railItems.forEach((i) => i.classList.remove('is-active'));
-              const item = railIndex.get(key);
-              if (item) item.classList.add('is-active');
-              document.body.classList.toggle('rail-inverted', darkSections.has(key));
-            }
-          },
+              onToggle: (self) => {
+                if (self.isActive) {
+                  railItems.forEach((i) => i.classList.remove('is-active'));
+                  const item = railIndex.get(key);
+                  if (item) item.classList.add('is-active');
+                  document.body.classList.toggle('rail-inverted', darkSections.has(key));
+                } else if (darkSections.has(key)) {
+                  // Leaving a dark section — clear inverted state so the rail
+                  // doesn't carry "light on dark" styling into the next cream section.
+                  document.body.classList.remove('rail-inverted');
+                }
+              },
         });
       });
     }
@@ -244,19 +269,96 @@
       }
     }
 
+    // ---------- Challenge: failure-rate trend chart draw-in ----------
+    if (hasGSAP && !prefersReduced) {
+      const chart = document.querySelector('.challenge__chart');
+      if (chart) {
+        const line = chart.querySelector('.challenge__chart-line');
+        const clipRect = chart.querySelector('.challenge__chart-clip');
+        const startDot = chart.querySelector('.challenge__chart-dot--start');
+        const endDot = chart.querySelector('.challenge__chart-dot--end');
+        const labels = chart.querySelectorAll('text');
+
+        if (line && clipRect) {
+          try {
+            const len = line.getTotalLength();
+            line.style.strokeDasharray = len;
+            line.style.strokeDashoffset = len;
+            // Hide endpoints until the line lands; start dot rides in with the line head.
+            gsap.set([endDot, labels], { opacity: 0 });
+            gsap.set(startDot, { opacity: 0, scale: 0, transformOrigin: '20px 82px' });
+
+            const tl = gsap.timeline({
+              scrollTrigger: { trigger: chart, start: 'top 80%', once: true },
+            });
+            tl.to(startDot, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)' }, 0)
+              .to(line, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 0)
+              .to(clipRect, { attr: { width: 320 }, duration: 1.4, ease: 'power2.inOut' }, 0)
+              .to(endDot, { opacity: 1, duration: 0.4, ease: 'back.out(2)' }, 1.25)
+              .to(labels, { opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.06 }, 0.6);
+          } catch (e) { /* ignore */ }
+        }
+      }
+    }
+
+    // ---------- Approach: from/to triptych — row reveal + arrow stroke draw ----------
+    if (hasGSAP && !prefersReduced) {
+      const shifts = document.querySelector('.approach__shifts');
+      if (shifts) {
+        const rows = shifts.querySelectorAll('.approach__shift');
+        const arrows = shifts.querySelectorAll('.approach__shift-arrow path');
+        arrows.forEach((p) => {
+          try {
+            const len = p.getTotalLength();
+            p.style.strokeDasharray = len;
+            p.style.strokeDashoffset = len;
+          } catch (e) { /* ignore */ }
+        });
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: shifts, start: 'top 75%', once: true },
+        });
+        tl.from(rows, {
+          opacity: 0,
+          y: 18,
+          duration: 0.7,
+          stagger: 0.18,
+          ease: 'power3.out',
+        }, 0)
+          .to(arrows, {
+            strokeDashoffset: 0,
+            duration: 0.7,
+            stagger: 0.18,
+            ease: 'power2.inOut',
+          }, 0.1);
+      }
+    }
+
     // ---------- Compare: horizontal slide-in + divider draw ----------
     if (hasGSAP && !prefersReduced) {
       const compare = document.querySelector('.compare');
       if (compare) {
         const before = compare.querySelector('.compare__col--before');
         const after = compare.querySelector('.compare__col--after');
-        const arrow = compare.querySelector('.compare__divider-arrow');
+        const dividerPaths = compare.querySelectorAll('.compare__divider-svg path');
+        const dividerThen = compare.querySelector('.compare__divider-then');
+        const dividerNow = compare.querySelector('.compare__divider-now');
+
+        // Prep stroke draw
+        dividerPaths.forEach((p) => {
+          try {
+            const len = p.getTotalLength();
+            p.style.strokeDasharray = len;
+            p.style.strokeDashoffset = len;
+          } catch (e) { /* ignore */ }
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: { trigger: compare, start: 'top 65%', once: true },
         });
         tl.from(before, { xPercent: -6, opacity: 0, duration: 0.9, ease: 'power3.out' }, 0)
           .from(after,  { xPercent:  6, opacity: 0, duration: 0.9, ease: 'power3.out' }, 0.08)
-          .from(arrow,  { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(2)' }, 0.35);
+          .to(dividerPaths, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut', stagger: 0.1 }, 0.3)
+          .from([dividerThen, dividerNow].filter(Boolean), { opacity: 0, y: 6, duration: 0.5, ease: 'power2.out', stagger: 0.1 }, 0.7);
 
         gsap.from(compare.querySelectorAll('.compare__list li'), {
           opacity: 0, y: 16, stagger: 0.08, duration: 0.6, ease: 'power2.out',
@@ -265,15 +367,18 @@
       }
     }
 
-    // ---------- Shift: paper → chart morph on scroll ----------
+    // ---------- Shift: paper → spreadsheet → dashboard morph on scroll ----------
     if (hasGSAP && !prefersReduced) {
       const shift = document.querySelector('.shift__visual');
       if (shift) {
         const paper = shift.querySelector('[data-morph="paper"]');
+        const sheet = shift.querySelector('[data-morph="grid"]');
         const chart = shift.querySelector('[data-morph="chart"]');
-        const bars = shift.querySelectorAll('[data-morph="chart"] rect');
+        const bars = shift.querySelectorAll('.shift__bar');
         const polyline = shift.querySelector('[data-morph="chart"] polyline');
+        const kpiTile = chart && chart.querySelectorAll('g')[0];
 
+        gsap.set(sheet, { opacity: 0, scale: 0.96, transformOrigin: 'center' });
         gsap.set(chart, { opacity: 0, scale: 0.96, transformOrigin: 'center' });
         gsap.set(bars, { scaleY: 0, transformOrigin: 'bottom' });
         gsap.set(polyline, { opacity: 0 });
@@ -281,15 +386,19 @@
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: shift,
-            start: 'top 70%',
+            start: 'top 75%',
             end: 'bottom 40%',
-            scrub: 0.6,
+            scrub: 0.7,
           },
         });
-        tl.to(paper, { opacity: 0, y: -10, duration: 1, ease: 'power1.in' })
-          .to(chart, { opacity: 1, scale: 1, duration: 1, ease: 'power2.out' }, 0.3)
-          .to(bars,  { scaleY: 1, duration: 1, ease: 'power2.out', stagger: 0.08 }, 0.5)
-          .to(polyline, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.3);
+        // Paper → Sheet
+        tl.to(paper, { opacity: 0, y: -14, duration: 0.6, ease: 'power1.in' }, 0)
+          .to(sheet, { opacity: 1, scale: 1, duration: 0.7, ease: 'power2.out' }, 0.2)
+        // Sheet → Dashboard
+          .to(sheet, { opacity: 0, scale: 1.04, duration: 0.5, ease: 'power1.in' }, 1.2)
+          .to(chart, { opacity: 1, scale: 1, duration: 0.7, ease: 'power2.out' }, 1.4)
+          .to(bars,  { scaleY: 1, duration: 0.8, ease: 'power2.out', stagger: 0.06 }, 1.7)
+          .to(polyline, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 2.2);
       }
     }
 
@@ -335,7 +444,10 @@
     const bar = document.querySelector('.engagement__bar');
     if (bar) {
       const segs = bar.querySelectorAll('.engagement__bar-seg');
-      const fill = () => segs.forEach((s) => { s.style.width = (s.dataset.width || '0') + '%'; });
+      const fill = () => {
+        segs.forEach((s) => { s.style.width = (s.dataset.width || '0') + '%'; });
+        bar.classList.add('is-engagement-filled');
+      };
       if (hasGSAP) {
         ScrollTrigger.create({
           trigger: bar, start: 'top 80%', once: true, onEnter: fill,
@@ -346,7 +458,7 @@
       }
     }
 
-    // ---------- Embedding cards: lift + arrow sweep ----------
+    // ---------- Embedding cards: lift + SVG arrow draw-in ----------
     if (hasGSAP && !prefersReduced) {
       const cards = document.querySelectorAll('.embed-card');
       if (cards.length) {
@@ -355,9 +467,21 @@
           ease: 'power3.out', stagger: 0.15,
           scrollTrigger: { trigger: '.embedding__cards', start: 'top 75%', once: true },
         });
-        gsap.from('.embed-card__arrow', {
-          opacity: 0, x: -10, duration: 0.6, ease: 'power2.out', stagger: 0.2,
-          scrollTrigger: { trigger: '.embedding__cards', start: 'top 70%', once: true },
+
+        const arrowPaths = document.querySelectorAll('.embed-card__arrow path');
+        arrowPaths.forEach((p) => {
+          try {
+            const len = p.getTotalLength();
+            p.style.strokeDasharray = len;
+            p.style.strokeDashoffset = len;
+          } catch (e) { /* ignore */ }
+        });
+        gsap.to(arrowPaths, {
+          strokeDashoffset: 0,
+          duration: 0.7,
+          ease: 'power2.inOut',
+          stagger: 0.12,
+          scrollTrigger: { trigger: '.embedding__cards', start: 'top 65%', once: true },
         });
       }
     }
@@ -368,6 +492,44 @@
         y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.2,
         scrollTrigger: { trigger: '.method__list', start: 'top 75%', once: true },
       });
+    }
+
+    // ---------- Coda video: click-to-load YouTube facade ----------
+    // Avoids loading the YouTube player on every page view; only fetched on intent.
+    const codaFacade = document.querySelector('.coda__facade');
+    if (codaFacade) {
+      const activate = () => {
+        const id = codaFacade.dataset.videoId;
+        if (!id) return;
+        const title = codaFacade.dataset.videoTitle || 'Video';
+        const iframe = document.createElement('iframe');
+        iframe.className = 'coda__iframe';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = title;
+        iframe.loading = 'lazy';
+        iframe.allowFullscreen = true;
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.setAttribute('frameborder', '0');
+        codaFacade.replaceWith(iframe);
+        try { iframe.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+      };
+      codaFacade.addEventListener('click', activate);
+      codaFacade.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    }
+
+    // ---------- Topbar fallback (when GSAP/Lenis aren't present) ----------
+    if (!hasGSAP && topbar) {
+      const update = () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? Math.min(100, Math.max(0, (window.scrollY / docH) * 100)) : 0;
+        topbar.style.setProperty('--topbar-progress', pct.toFixed(2) + '%');
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
     }
 
     // ---------- Back-to-top button ----------

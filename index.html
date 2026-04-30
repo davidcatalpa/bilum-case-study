@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=narrative-22" />
 
   <!-- Lenis smooth scroll -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
@@ -25,6 +25,11 @@
 </head>
 <body class="rail-inverted">
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Top progress bar (replaces hidden rail on mobile) -->
+  <div class="topbar" aria-hidden="true">
+    <span class="topbar__fill"></span>
+  </div>
 
   <!-- Site-level chrome -->
   <header class="site-chrome" role="banner">
@@ -52,16 +57,16 @@
       <li class="rail__item" data-rail="hero"><span class="rail__dot"></span><span class="rail__label">Opening</span></li>
       <li class="rail__item" data-rail="context"><span class="rail__dot"></span><span class="rail__label">Context</span></li>
       <li class="rail__item" data-rail="challenge"><span class="rail__dot"></span><span class="rail__label">Challenge</span></li>
-      <li class="rail__item" data-rail="compare"><span class="rail__dot"></span><span class="rail__label">Contrast</span></li>
       <li class="rail__item" data-rail="approach"><span class="rail__dot"></span><span class="rail__label">Approach</span></li>
       <li class="rail__item" data-rail="timeline"><span class="rail__dot"></span><span class="rail__label">Timeline</span></li>
       <li class="rail__item" data-rail="product"><span class="rail__dot"></span><span class="rail__label">In use</span></li>
       <li class="rail__item" data-rail="shift"><span class="rail__dot"></span><span class="rail__label">Shift</span></li>
+      <li class="rail__item" data-rail="compare"><span class="rail__dot"></span><span class="rail__label">Contrast</span></li>
       <li class="rail__item" data-rail="impact"><span class="rail__dot"></span><span class="rail__label">Impact</span></li>
-      <li class="rail__item" data-rail="confidence"><span class="rail__dot"></span><span class="rail__label">Confidence</span></li>
       <li class="rail__item" data-rail="rollout"><span class="rail__dot"></span><span class="rail__label">Rollout</span></li>
       <li class="rail__item" data-rail="engagement"><span class="rail__dot"></span><span class="rail__label">Users</span></li>
       <li class="rail__item" data-rail="embedding"><span class="rail__dot"></span><span class="rail__label">Embedding</span></li>
+      <li class="rail__item" data-rail="confidence"><span class="rail__dot"></span><span class="rail__label">Confidence</span></li>
       <li class="rail__item" data-rail="relationships"><span class="rail__dot"></span><span class="rail__label">Relationships</span></li>
       <li class="rail__item" data-rail="method"><span class="rail__dot"></span><span class="rail__label">Method</span></li>
       <li class="rail__item" data-rail="honest"><span class="rail__dot"></span><span class="rail__label">Honestly</span></li>
@@ -79,13 +84,21 @@
         <div class="hero__grain"></div>
       </div>
 
+      <div class="hero__watermark" aria-hidden="true">K1.165<span class="hero__watermark-suffix">B</span></div>
+
+      <div class="hero__chaptermark" aria-hidden="true">
+        <span class="hero__chaptermark-rule"></span>
+        <span class="hero__chaptermark-num">I</span>
+        <span class="hero__chaptermark-name">Opening</span>
+      </div>
+
       <div class="hero__meta">
         <span class="eyebrow">Case Study</span>
         <span class="eyebrow eyebrow--muted">Papua New Guinea</span>
       </div>
 
       <h1 id="hero-title" class="hero__title" data-split>
-        A <em>quiet institutional reform</em>: how Papua New Guinea changed the way K1.165&nbsp;billion a year is tracked, verified and used.
+        A <em data-hero-em>quiet institutional reform<svg class="hero__em-underline" viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2,7 C40,2 90,11 130,5 S210,8 238,4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg></em>: how Papua New Guinea changed the way K1.165&nbsp;billion a year is tracked, verified and used.
       </h1>
 
       <div class="hero__attribution" data-reveal>
@@ -95,22 +108,54 @@
       </div>
 
       <p class="hero__standfirst hero__standfirst--accent" data-reveal>
-        Inside the Department of Implementation and Rural Development (DIRD), officers shifted from handling documents to verifying and analysing them&nbsp;— giving government its first credible, national view of how district funds flow, and how they&rsquo;re used. Reform didn&rsquo;t come from a tool. It came from people&nbsp;— supported by one.
+        Inside the Department of Implementation and Rural Development (DIRD), officers moved from sorting paper to reading the country. For the first time, government has a credible, national view of how district funds flow&nbsp;— and how they&rsquo;re used. Reform didn&rsquo;t come from a tool. It came from people, supported by one.
       </p>
 
-      <div class="hero__scrollcue" aria-hidden="true">
-        <span>Scroll</span>
-        <span class="hero__scrollcue-line"></span>
-      </div>
+      <a class="hero__scrollcue" href="#context" aria-label="Scroll to Chapter II: Context">
+        <span class="hero__scrollcue-num">II.</span>
+        <span class="hero__scrollcue-name">Context</span>
+        <span class="hero__scrollcue-line" aria-hidden="true"></span>
+        <span class="hero__scrollcue-arrow" aria-hidden="true">&rarr;</span>
+      </a>
     </section>
+
+    <!-- Co-funding partnership attribution -->
+    <aside class="partners" aria-label="Co-funding partnership">
+      <div class="partners__inner">
+        <div class="partners__copy">
+          <span class="eyebrow">A co-funded partnership</span>
+          <p class="partners__lead">
+            The Bilum Program is a co-funded partnership between the Government of Papua New Guinea and the Australian Government, under the Building Community Engagement Program (BCEP).
+          </p>
+        </div>
+
+        <div class="partners__logos">
+          <!-- TODO: replace placeholder with <img src="assets/logos/gopng.png" alt="Government of Papua New Guinea" class="partners__logo-img"> -->
+          <div class="partners__logo partners__logo--placeholder">
+            <span class="partners__logo-name">Government of Papua New Guinea</span>
+            <span class="partners__logo-note">Logo</span>
+          </div>
+          <!-- TODO: replace placeholder with <img src="assets/logos/australian-government.png" alt="Australian Government" class="partners__logo-img"> -->
+          <div class="partners__logo partners__logo--placeholder">
+            <span class="partners__logo-name">Australian Government</span>
+            <span class="partners__logo-note">Logo</span>
+          </div>
+        </div>
+      </div>
+    </aside>
 
     <!-- 2. CONTEXT -->
     <section class="context" id="context" data-rail="context" aria-labelledby="context-title">
       <div class="context__inner">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">II</span>
+          <span class="chapter-mark__name">Context</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
         <span class="eyebrow" data-reveal>Background</span>
         <h2 id="context-title" class="h2" data-split>Why SIP accountability matters.</h2>
-        <p class="lede" data-reveal>
-          The Service Improvement Program is one of Papua New Guinea&rsquo;s most significant sources of subnational development funding. At this scale, stronger accountability is critical to ensuring funds are tracked, reported and used effectively&nbsp;— helping government make better decisions and support improved service delivery.
+        <p class="lede dropcap" data-reveal>
+          The Service Improvement Program is the largest annual flow of development capital to Papua New Guinea&rsquo;s provinces and districts. By formula, every district receives K10&nbsp;million each year and every province another K10&nbsp;million&nbsp;— money allocated for roads, classrooms, aid posts, courts and rural enterprise. For most districts, it is the largest single source of public investment they will see in a year.
         </p>
 
         <div class="stats">
@@ -119,115 +164,193 @@
             <div class="stat__rule" aria-hidden="true"></div>
             <div class="stat__label">Annual SIP funding across PNG</div>
             <!-- AUD equivalent at ~0.33 AUD/PGK (early 2026 mid-market). Review annually. -->
-            <div class="stat__sublabel">&asymp; AUD 385m &middot; reaching every district</div>
+            <div class="stat__sublabel">&asymp; AUD 385m &middot; the largest formula-allocated subnational development flow</div>
           </div>
           <div class="stat" data-reveal>
-            <div class="stat__figure" data-counter data-end="10" data-decimals="0" data-suffix="%" data-duration="1.4">0%</div>
+            <div class="stat__figure" data-counter data-end="90" data-decimals="0" data-suffix="%" data-duration="1.4">0%</div>
             <div class="stat__rule" aria-hidden="true"></div>
-            <div class="stat__label">Of PNG&rsquo;s national budget</div>
-            <div class="stat__sublabel">One of the country&rsquo;s most significant subnational funds</div>
+            <div class="stat__label">Allocated to direct service delivery<sup class="challenge__numbers-cite"><a href="#src-4">4</a></sup></div>
+            <div class="stat__sublabel">Infrastructure 30 &middot; Health 20 &middot; Education 20 &middot; Law &amp; Justice 10 &middot; Economic 10</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat__figure" data-counter data-end="10" data-decimals="0" data-prefix="K" data-suffix="M" data-duration="1.4">K0M</div>
+            <div class="stat__rule" aria-hidden="true"></div>
+            <div class="stat__label">Per district, per year</div>
+            <div class="stat__sublabel">A formula allocation across 96 districts and 22 provinces</div>
           </div>
         </div>
 
+        <p class="body context__anchor" data-reveal>
+          The formula is the same from Port Moresby to Nuku&nbsp;— K10&nbsp;million per district, every year. For most of that history, no national institution could say with confidence what most of it had bought.
+        </p>
+
         <p class="body" data-reveal>
-          Before Bilum, longstanding weaknesses in transparency, reporting and oversight limited credible visibility of SIP allocations, implementation and acquittals across the country. DIRD&nbsp;— which holds the mandate for SIP oversight&nbsp;— did more than digitise reporting through Bilum. It introduced clearer systems, better tools and more consistent workflows&nbsp;— while staff built confidence, strengthened relationships and took on a more strategic role in oversight and decision-making.
+          This is where Papua New Guineans encounter the state&nbsp;— in the classroom roof that does or doesn&rsquo;t get repaired, the aid post that does or doesn&rsquo;t reopen, the road that does or doesn&rsquo;t reach the highway in the wet. SIP now accounts for roughly half of all subnational capital spending.<sup class="challenge__numbers-cite"><a href="#src-5">5</a></sup> When the reporting on it fails, the failure shows up locally. That mandate has long been on paper. Until Bilum, the systems for exercising it credibly were not.
         </p>
       </div>
     </section>
 
     <!-- 3. THE CHALLENGE -->
     <section class="challenge" id="challenge" data-rail="challenge" aria-labelledby="challenge-title">
-      <div class="challenge__sticky">
-        <span class="eyebrow eyebrow--light">The challenge</span>
-        <h2 id="challenge-title" class="h2 h2--light" data-split>Before Bilum.</h2>
-      </div>
-
-      <div class="challenge__stack">
-        <p class="challenge__body body" data-reveal>
-          Fragmented systems and uneven processes shaped SIP reporting. Different offices used different spreadsheets and templates. Information arrived in large volumes, but no single system existed to consolidate it, interrogate it, or turn it into something useful for national oversight.
-        </p>
-
-        <figure class="pullquote pullquote--dark" data-reveal>
-          <blockquote>&ldquo;There was no centralised database to share or analyse data.&rdquo;</blockquote>
-          <figcaption><cite>— DIRD staff member</cite></figcaption>
-        </figure>
-
-        <p class="challenge__body body" data-reveal>
-          That absence of system had real consequences for the people doing the work. A Project Implementation Wing (PIW) officer recalled the everyday reality behind weak processes&nbsp;— staff were not just slowed down, they were drained by them.
-        </p>
-
-        <figure class="pullquote pullquote--dark pullquote--xl" data-reveal>
-          <blockquote>&ldquo;The volume of acquittals was so high that DIRD officers felt defeated before even starting analysis.&rdquo;</blockquote>
-          <figcaption><cite>— PIW Officer, DIRD</cite></figcaption>
-        </figure>
-
-        <p class="challenge__body body" data-reveal>
-          DIRD was seen as a <em>sleeping giant</em>&nbsp;— an institution with a substantial mandate and administrative authority, but without the tools, systems or coordination needed to exercise that role with confidence.
-        </p>
-      </div>
-    </section>
-
-    <!-- 4. BEFORE / AFTER -->
-    <section class="compare" id="compare" data-rail="compare" aria-labelledby="compare-title">
-      <div class="compare__header">
-        <span class="eyebrow" data-reveal>Transformation</span>
-        <h2 id="compare-title" class="h2" data-split>From fragmented systems to unified oversight.</h2>
-      </div>
-
-      <div class="compare__grid">
-        <div class="compare__col compare__col--before" data-reveal>
-          <div class="compare__label">
-            <span class="compare__tag compare__tag--before">Before Bilum</span>
+      <div class="challenge__layout">
+        <div class="challenge__sticky">
+          <div class="chapter-mark chapter-mark--light" aria-hidden="true">
+            <span class="chapter-mark__num">III</span>
+            <span class="chapter-mark__name">The Challenge</span>
+            <span class="chapter-mark__rule"></span>
           </div>
-          <ul class="compare__list">
-            <li>Fragmented spreadsheets and templates across offices</li>
-            <li>No centralised database for analysis</li>
-            <li>Staff &ldquo;felt defeated&rdquo; by volume of work</li>
-            <li>Manual processing consumed daily effort</li>
-            <li>DIRD seen as a &ldquo;sleeping giant&rdquo;</li>
-          </ul>
-        </div>
+          <h2 id="challenge-title" class="h2 h2--light" data-split>A K9.65&nbsp;billion blind spot.</h2>
+          <p class="challenge__kicker">Money disbursed. Money acquitted. Money traceable. By 2017, only the first was reliable.</p>
 
-        <div class="compare__divider" aria-hidden="true">
-          <span class="compare__divider-line"></span>
-          <span class="compare__divider-arrow">→</span>
-        </div>
-
-        <div class="compare__col compare__col--after" data-reveal>
-          <div class="compare__label">
-            <span class="compare__tag compare__tag--after">After Bilum</span>
-          </div>
-          <ul class="compare__list">
-            <li>A unified digital platform for all SIP reporting</li>
-            <li>Centralised data enabling strategic analysis</li>
-            <li>Staff shifted to verification and oversight</li>
-            <li>Automated processes free up capacity</li>
-            <li>DIRD credibility and mandate restored</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. APPROACH -->
-    <section class="approach" id="approach" data-rail="approach" aria-labelledby="approach-title">
-      <div class="approach__grid">
-        <div class="approach__text">
-          <span class="eyebrow" data-reveal>The approach</span>
-          <h2 id="approach-title" class="h2" data-split>Building change with people, not around them.</h2>
-          <p class="body" data-reveal>
-            One of the strongest features of the Bilum story is that the platform was not simply introduced into government from the outside. It was shaped with the people expected to use it. The case study attributes Bilum&rsquo;s success in large part to its iterative development process, with district and national officers helping shape functionality based on practical needs and real operational experience.
-          </p>
-          <p class="body" data-reveal>
-            Catalpa worked closely alongside DIRD throughout the process&nbsp;— as an embedded partner, not a distant contractor. That proximity helped build trust, responsiveness and shared ownership. The result was not only a better system, but a stronger sense that change was being made <em>with</em> government, not <em>for</em> government.
-          </p>
-
-          <figure class="pullquote" data-reveal>
-            <blockquote>&ldquo;Bilum was not asking users to fit around the tool; the tool evolved in response to the work they were trying to do.&rdquo;</blockquote>
+          <figure class="challenge__photo" data-reveal>
+            <div class="challenge__photo-pair">
+              <div class="challenge__photo-frame challenge__photo-frame--officer" role="img" aria-label="A DIRD officer lifting a stack of acquittal binders at his desk."></div>
+              <div class="challenge__photo-frame challenge__photo-frame--binders" role="img" aria-label="Stacks of paper SIP acquittals stored in lever-arch binders inside DIRD, before Bilum."></div>
+            </div>
+            <figcaption class="challenge__photo-caption">
+              <span class="challenge__photo-caption-eyebrow">Inside DIRD, before Bilum</span>
+              The reporting record for K9.65&nbsp;billion of public investment, on the desks of the Project Implementation Wing.
+            </figcaption>
           </figure>
         </div>
+
+        <div class="challenge__stack">
+          <p class="challenge__lede" data-reveal>
+            For a Project Implementation Wing (PIW) officer at DIRD in 2019, the work began at the desk and ended in the box. Acquittals from districts across the country arrived as paper&nbsp;— by road, by air, in cardboard archive boxes that sat behind the desk waiting to be opened. There was no central database to consolidate them, query them, or cross-check them against the guidelines they were meant to satisfy. The volume rose. The visibility did not.
+          </p>
+
+          <figure class="pullquote pullquote--dark pullquote--xl" data-reveal>
+            <blockquote>&ldquo;The volume of acquittals was so high that DIRD officers felt defeated before even starting analysis.&rdquo;</blockquote>
+            <figcaption><cite>— PIW Officer, DIRD</cite></figcaption>
+          </figure>
+
+          <aside class="challenge__numbers" data-reveal aria-label="The credibility gap, by the numbers">
+            <span class="eyebrow eyebrow--light challenge__numbers-eyebrow">The credibility gap</span>
+            <ol class="challenge__numbers-list">
+
+              <li class="challenge__numbers-row">
+                <span class="challenge__numbers-num" aria-hidden="true">i</span>
+                <div class="challenge__numbers-body">
+                  <h3 class="challenge__numbers-head">In 2017, the auditor couldn&rsquo;t sign off.</h3>
+                  <p class="challenge__numbers-fact">
+                    The Auditor General&rsquo;s Office could not form an opinion on the financial statements of any province or Local-Level Government in Papua New Guinea&nbsp;— a national-level qualification with no easy parallel in stable systems.<sup class="challenge__numbers-cite"><a href="#src-1">1</a></sup>
+                  </p>
+                </div>
+              </li>
+
+              <li class="challenge__numbers-row">
+                <span class="challenge__numbers-num" aria-hidden="true">ii</span>
+                <div class="challenge__numbers-body">
+                  <h3 class="challenge__numbers-head">A failure rate that quadrupled in four years.</h3>
+                  <p class="challenge__numbers-fact">
+                    In 2013, fewer than one in five provinces and districts failed to acquit SIP funding. By 2017, more than seven in ten did.<sup class="challenge__numbers-cite"><a href="#src-1">1</a></sup>
+                  </p>
+                  <figure class="challenge__chart" aria-label="Failure-to-acquit rate, 2013 to 2017">
+                    <svg class="challenge__chart-svg" viewBox="0 0 320 110" preserveAspectRatio="none" role="img">
+                      <defs>
+                        <linearGradient id="challengeChartFill" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#A6432A" stop-opacity="0.45"/>
+                          <stop offset="100%" stop-color="#A6432A" stop-opacity="0"/>
+                        </linearGradient>
+                        <clipPath id="challengeChartClip" clipPathUnits="userSpaceOnUse">
+                          <rect class="challenge__chart-clip" x="0" y="0" width="0" height="110"/>
+                        </clipPath>
+                      </defs>
+                      <line x1="20" y1="92" x2="304" y2="92" stroke="rgba(246,239,230,0.18)" stroke-width="1"/>
+                      <path class="challenge__chart-area" d="M20,82 C90,78 150,60 220,40 S290,18 304,14 L304,92 L20,92 Z" fill="url(#challengeChartFill)" clip-path="url(#challengeChartClip)"/>
+                      <path class="challenge__chart-line" d="M20,82 C90,78 150,60 220,40 S290,18 304,14" fill="none" stroke="#C27A1E" stroke-width="2.4" stroke-linecap="round"/>
+                      <circle class="challenge__chart-dot challenge__chart-dot--start" cx="20" cy="82" r="3.5" fill="#C27A1E"/>
+                      <circle class="challenge__chart-dot challenge__chart-dot--end" cx="304" cy="14" r="3.5" fill="#A6432A"/>
+                      <text x="20" y="106" fill="rgba(246,239,230,0.6)" font-family="Inter, sans-serif" font-size="9" letter-spacing="1">2013</text>
+                      <text x="304" y="106" text-anchor="end" fill="rgba(246,239,230,0.6)" font-family="Inter, sans-serif" font-size="9" letter-spacing="1">2017</text>
+                      <text x="34" y="78" fill="#F6EFE6" font-family="Fraunces, serif" font-size="13" font-style="italic">&lt;20%</text>
+                      <text x="290" y="22" text-anchor="end" fill="#F6EFE6" font-family="Fraunces, serif" font-size="13" font-style="italic">&gt;70%</text>
+                    </svg>
+                  </figure>
+                </div>
+              </li>
+
+              <li class="challenge__numbers-row challenge__numbers-row--feature">
+                <span class="challenge__numbers-num" aria-hidden="true">iii</span>
+                <div class="challenge__numbers-body">
+                  <h3 class="challenge__numbers-head">K9.65&nbsp;billion disbursed. Some never accounted for.</h3>
+                  <p class="challenge__numbers-fact">
+                    Between 2013 and 2022, K9.65&nbsp;billion in SIP funds was disbursed across PNG. Two provinces and one district have never acquitted theirs.<sup class="challenge__numbers-cite"><a href="#src-2">2</a></sup>
+                  </p>
+                </div>
+              </li>
+
+            </ol>
+          </aside>
+
+          <p class="challenge__close body" data-reveal>
+            DIRD held the mandate. PIW officers held the work. What neither held was a system that could match the scale of either. The reform that followed didn&rsquo;t begin with a tool. It began with that gap, named honestly, by the people closest to it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. APPROACH -->
+    <section class="approach" id="approach" data-rail="approach" aria-labelledby="approach-title">
+      <div class="approach__layout">
+        <header class="approach__header">
+          <div class="chapter-mark" aria-hidden="true">
+            <span class="chapter-mark__num">IV</span>
+            <span class="chapter-mark__name">Approach</span>
+            <span class="chapter-mark__rule"></span>
+          </div>
+          <span class="eyebrow" data-reveal>The approach</span>
+          <h2 id="approach-title" class="h2" data-split>At the speed of trust.</h2>
+          <p class="lede" data-reveal>
+            The pace was set by the relationship, not the schedule. Bilum moved when DIRD was ready to move. The team worked on the SIP cycle, not a delivery calendar. That choice&nbsp;— to let trust set the rhythm&nbsp;— shaped what got built, who built it, and who it was for.
+          </p>
+        </header>
+
         <div class="approach__media" data-reveal>
           <div class="approach__photo" data-parallax="0.08"></div>
-          <div class="approach__caption">DIRD management and Catalpa co-design sessions shaped every iteration of Bilum.</div>
+          <div class="approach__caption">Co-design sessions ran on the SIP cycle, not a project schedule. Decisions were made together, in DIRD&rsquo;s offices.</div>
+        </div>
+
+        <figure class="approach__shifts" aria-label="Three structural shifts in the approach" data-reveal>
+          <span class="approach__shifts-eyebrow eyebrow">Three structural shifts ran underneath every feature</span>
+          <ol class="approach__shifts-list">
+            <li class="approach__shift">
+              <span class="approach__shift-from">Reporting <em>for</em> DIRD</span>
+              <svg class="approach__shift-arrow" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2,12 L70,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M62,7 L72,12 L62,17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="approach__shift-to">Reporting <em>for</em> the district</span>
+            </li>
+            <li class="approach__shift">
+              <span class="approach__shift-from">DIRD chasing paper</span>
+              <svg class="approach__shift-arrow" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2,12 L70,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M62,7 L72,12 L62,17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="approach__shift-to">DIRD assuring quality</span>
+            </li>
+            <li class="approach__shift">
+              <span class="approach__shift-from">Catalpa building <em>for</em> government</span>
+              <svg class="approach__shift-arrow" viewBox="0 0 80 24" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2,12 L70,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M62,7 L72,12 L62,17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="approach__shift-to">Catalpa building <em>with</em> government</span>
+            </li>
+          </ol>
+        </figure>
+
+        <div class="approach__body">
+          <p class="body" data-reveal>
+            For most of SIP&rsquo;s history, acquittal was something districts owed Port Moresby. Bilum was built first to be useful at the front line&nbsp;— to district administrators planning a year, to PIW officers tracking a project, to subnational executives running a quarter. Reporting upward to DIRD became a by-product of locally useful work, not a tax on it.
+          </p>
+          <p class="body" data-reveal>
+            With the data captured at source, DIRD&rsquo;s role could change. Officers moved off the paperwork and into the oversight responsibilities the department had long held: compliance, quality assurance, and shaping the rules. The mandate had always been there. Bilum gave DIRD the tools to exercise it at national scale.
+          </p>
+          <p class="body" data-reveal>
+            The delivery team was embedded inside DIRD&nbsp;— PNG-based staff working alongside Corporate Services, the Project Implementation Wing and the executive. By Phase 3, GoPNG cost-sharing exceeded K6&nbsp;million across rollout travel and corporate support;<sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup> the platform increasingly ran on government cycles, government decisions and government money.
+          </p>
         </div>
       </div>
     </section>
@@ -241,37 +364,36 @@
       </div>
     </aside>
 
-    <!-- 6. TIMELINE (scaffold — verify dates/milestones before publishing) -->
+    <!-- 5. TIMELINE -->
     <section class="timeline" id="timeline" data-rail="timeline" aria-labelledby="timeline-title">
       <div class="timeline__header">
-        <div class="draft-banner" data-draft>
-          <span class="draft-banner__tag">Draft</span>
-          <span class="draft-banner__note">Timeline scaffolded with best-available dates and milestones. Please verify each entry before publishing, then remove this banner.</span>
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">V</span>
+          <span class="chapter-mark__name">Timeline</span>
+          <span class="chapter-mark__rule"></span>
         </div>
         <span class="eyebrow" data-reveal>Program timeline</span>
         <h2 id="timeline-title" class="h2" data-split>A multi-year partnership.</h2>
         <p class="lede" data-reveal>
-          Bilum was built across three phases, each shaped by what the previous one taught us&nbsp;— and with Phase 4 now coming into view.
+          Bilum was built across three phases. Phase 4 is now coming into view.
         </p>
       </div>
 
       <ol class="timeline__track" role="list">
         <li class="timeline__node" data-reveal>
           <span class="timeline__year">Phase 1</span>
-          <span class="timeline__dates">[TODO: dates]</span>
-          <h3 class="timeline__title">Foundations</h3>
+          <span class="timeline__dates">Jun 2020 &mdash; 2021</span>
+          <h3 class="timeline__title">Concept &amp; design</h3>
           <p class="timeline__body">
-            First iteration of Bilum developed with DIRD: establishing the core reporting model, initial user base and proof of concept.
-            <span class="todo">[TODO: name one concrete Phase 1 milestone.]</span>
+            Initial concept developed through human-centred design with DIRD officers, aligned to PNG-specific operational and governance needs.
           </p>
         </li>
         <li class="timeline__node" data-reveal>
           <span class="timeline__year">Phase 2</span>
-          <span class="timeline__dates">[TODO: dates]</span>
-          <h3 class="timeline__title">Refinement</h3>
+          <span class="timeline__dates">2021 &mdash; 2022</span>
+          <h3 class="timeline__title">Testing &amp; development</h3>
           <p class="timeline__body">
-            Workflows rebuilt in response to user feedback; platform extended to new districts and new reporting types.
-            <span class="todo">[TODO: name one concrete Phase 2 milestone.]</span>
+            Platform development began alongside location-focused pilots that refined workflows, reporting mechanisms and system functionality.
           </p>
         </li>
         <li class="timeline__node timeline__node--current" data-reveal>
@@ -287,21 +409,19 @@
           <span class="timeline__dates">2026 &rarr;</span>
           <h3 class="timeline__title">Business as usual</h3>
           <p class="timeline__body">
-            <span class="todo">[TODO: confirm Phase 4 scope. Candidates: nationwide mandatory reporting, expanded analytics, cross-department integration, government-led operation.]</span>
+            Nationwide mandatory reporting, expanded analytics, government-led operation, and in-house ICT capability inside DIRD.
           </p>
         </li>
       </ol>
     </section>
 
-    <!-- 7. PRODUCT — Bilum in use (scaffold — screenshots pending) -->
+    <!-- 6. PRODUCT — Bilum in use -->
     <section class="product" id="product" data-rail="product" aria-labelledby="product-title">
       <div class="product__header">
-        <div class="draft-banner" data-draft>
-          <span class="draft-banner__tag">Draft</span>
-          <span class="draft-banner__note">
-            Screenshot slots are placeholders. Drop images into <code>assets/product/</code> and replace each <code>.product__slot--placeholder</code> with an <code>&lt;img&gt;</code>.
-            Recommended: 1600&nbsp;&times;&nbsp;1000 (wide views), 600&nbsp;&times;&nbsp;1200 (phone view). Then remove this banner.
-          </span>
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">VI</span>
+          <span class="chapter-mark__name">In Use</span>
+          <span class="chapter-mark__rule"></span>
         </div>
         <span class="eyebrow" data-reveal>Bilum in use</span>
         <h2 id="product-title" class="h2" data-split>What the tool actually looks like.</h2>
@@ -327,116 +447,138 @@
         </figure>
       </div>
 
-      <div class="product__gallery">
-        <figure class="product__shot product__shot--wide" data-reveal>
-          <!-- TODO: replace with <img src="assets/product/dashboard.jpg" alt="Bilum national dashboard"> -->
-          <div class="product__slot product__slot--placeholder">
-            <span class="product__slot-label">Screenshot 1</span>
-            <span class="product__slot-note">Dashboard / landing view</span>
-          </div>
-          <figcaption class="product__caption">
-            <span class="product__caption-eyebrow">Dashboard</span>
-            <p>At a glance, national administrators see which districts have submitted, which are outstanding, and where to focus attention.</p>
-          </figcaption>
-        </figure>
-
-        <figure class="product__shot" data-reveal>
-          <!-- TODO: replace with <img src="assets/product/submission.jpg" alt="Bilum submission flow"> -->
-          <div class="product__slot product__slot--placeholder">
-            <span class="product__slot-label">Screenshot 2</span>
-            <span class="product__slot-note">Report submission flow</span>
-          </div>
-          <figcaption class="product__caption">
-            <span class="product__caption-eyebrow">Submission flow</span>
-            <p>District officers move through a guided workflow&nbsp;— uploading evidence, geo-tagging activity, recording expenditure.</p>
-          </figcaption>
-        </figure>
-
-        <figure class="product__shot" data-reveal>
-          <!-- TODO: replace with <img src="assets/product/analytics.jpg" alt="Bilum analytics view"> -->
-          <div class="product__slot product__slot--placeholder">
-            <span class="product__slot-label">Screenshot 3</span>
-            <span class="product__slot-note">Analytics / data view</span>
-          </div>
-          <figcaption class="product__caption">
-            <span class="product__caption-eyebrow">Analytics</span>
-            <p>Aggregated views that make patterns visible&nbsp;— by district, by sector, by quarter&nbsp;— so DIRD can act on information, not just collect it.</p>
-          </figcaption>
-        </figure>
-
-        <figure class="product__shot product__shot--mobile" data-reveal>
-          <!-- TODO: replace with <img src="assets/product/mobile.jpg" alt="Bilum mobile view"> -->
-          <div class="product__slot product__slot--placeholder product__slot--phone">
-            <span class="product__slot-label">Screenshot 4</span>
-            <span class="product__slot-note">Mobile view</span>
-          </div>
-          <figcaption class="product__caption">
-            <span class="product__caption-eyebrow">Mobile</span>
-            <p>Designed for the reality of Papua New Guinean connectivity&nbsp;— usable on a phone, resilient to intermittent signal.</p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <p class="product__close body" data-reveal>
-        The screenshots matter because they show what institutional reform looks like when it lands. Not a PowerPoint of intentions&nbsp;— a working tool that staff across the country are using every week.
+      <p class="product__note body" data-reveal>
+        Built for intermittent signal: submissions queue offline and sync when the line returns. One platform, four views &mdash; a national dashboard across 64 administrations, a guided submission flow from paper to evidence, analytics organised by district, sector and quarter, and a mobile view designed for the field.
       </p>
     </section>
 
-    <!-- 8. SHIFT IN WORK -->
+    <!-- 7. SHIFT IN WORK -->
     <section class="shift" id="shift" data-rail="shift" aria-labelledby="shift-title">
       <div class="shift__grid">
         <div class="shift__text">
+          <div class="chapter-mark" aria-hidden="true">
+            <span class="chapter-mark__num">VII</span>
+            <span class="chapter-mark__name">The Shift</span>
+            <span class="chapter-mark__rule"></span>
+          </div>
           <span class="eyebrow" data-reveal>The transformation</span>
           <h2 id="shift-title" class="h2" data-split>A shift in the work itself.</h2>
           <p class="body" data-reveal>
-            Before Bilum, much of DIRD&rsquo;s effort was absorbed by manual processing. After Bilum, staff increasingly shifted from data entry and document handling toward verification, analysis and strategic oversight.
+            The work changed at the desk. DIRD officers stopped retyping data and started questioning it. Reports moved from inbox to evidence; officers moved from clerk to analyst. The role of a Project Implementation Wing (PIW) officer in 2026 is recognisably different from the role in 2022.
           </p>
           <p class="body" data-reveal>
-            This is more than an efficiency gain. It represents a change in professional role and value&nbsp;— from managing paperwork to using information more actively to support accountability and decision-making. Staff had more opportunity to develop new capabilities, engage with data more meaningfully, and contribute to a more evidence-based approach to oversight.
+            That shift wasn&rsquo;t an efficiency gain. It was a change in professional identity&nbsp;— from manual processing to strategic oversight. Officers had more reason to engage with data, more authority to act on it, and more standing within the department for doing so.
           </p>
+          <figure class="pullquote pullquote--marginalia" data-reveal>
+            <blockquote>&ldquo;Before Bilum, we accepted reports anyhow and gave feedback later; now everything is uploaded in the system, making our work transparent and traceable.&rdquo;</blockquote>
+            <figcaption><cite>— DIRD respondent, PIW</cite></figcaption>
+          </figure>
           <figure class="pullquote pullquote--accent" data-reveal>
-            <blockquote>&ldquo;Bilum has fundamentally transformed DIRD into a more credible, data-driven, and strategically relevant institution.&rdquo;</blockquote>
-            <figcaption><cite>— Bilum Case Study</cite></figcaption>
+            <blockquote>&ldquo;Prior to Bilum, sub-national knew they could get away with using SIP anywhere&nbsp;— they felt nothing would come back to them. With Bilum, all information is kept and reviewed against guidelines. So Bilum acts as a deterrent.&rdquo;</blockquote>
+            <figcaption><cite>— Senior DIRD officer</cite></figcaption>
           </figure>
         </div>
 
         <div class="shift__visual" data-reveal>
-          <svg class="shift__morph" viewBox="0 0 400 400" role="img" aria-label="Illustration of paperwork transforming into data analysis">
+          <svg class="shift__morph" viewBox="0 0 480 440" role="img" aria-label="Illustration of paperwork transforming into a data dashboard">
             <defs>
-              <linearGradient id="shiftGrad" x1="0" y1="0" x2="1" y2="1">
+              <linearGradient id="shiftGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#A6432A"></stop>
                 <stop offset="100%" stop-color="#C27A1E"></stop>
               </linearGradient>
+              <linearGradient id="shiftGradSoft" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#A6432A" stop-opacity="0.85"></stop>
+                <stop offset="100%" stop-color="#C27A1E" stop-opacity="0.6"></stop>
+              </linearGradient>
             </defs>
-            <!-- Paper stack (left of morph) -->
+
+            <!-- Frame 1: Paper stack -->
             <g class="shift__paper" data-morph="paper">
-              <rect x="60" y="110" width="150" height="200" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" />
-              <rect x="70" y="100" width="150" height="200" rx="4" fill="none" stroke="currentColor" stroke-width="1.2" />
-              <rect x="80" y="90" width="150" height="200" rx="4" fill="#F6EFE6" stroke="currentColor" stroke-width="1.5" />
-              <line x1="100" y1="125" x2="210" y2="125" stroke="currentColor" stroke-width="1" />
-              <line x1="100" y1="145" x2="210" y2="145" stroke="currentColor" stroke-width="1" />
-              <line x1="100" y1="165" x2="180" y2="165" stroke="currentColor" stroke-width="1" />
-              <line x1="100" y1="200" x2="210" y2="200" stroke="currentColor" stroke-width="1" />
-              <line x1="100" y1="220" x2="190" y2="220" stroke="currentColor" stroke-width="1" />
-              <line x1="100" y1="240" x2="210" y2="240" stroke="currentColor" stroke-width="1" />
+              <rect x="80" y="120" width="200" height="260" rx="6" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <rect x="100" y="100" width="200" height="260" rx="6" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <rect x="120" y="80" width="200" height="260" rx="6" fill="#F6EFE6" stroke="currentColor" stroke-width="1.6" />
+              <line x1="148" y1="120" x2="290" y2="120" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="146" x2="290" y2="146" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="172" x2="250" y2="172" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="218" x2="290" y2="218" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="244" x2="270" y2="244" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="270" x2="290" y2="270" stroke="currentColor" stroke-width="1" />
+              <line x1="148" y1="296" x2="240" y2="296" stroke="currentColor" stroke-width="1" />
+              <text x="148" y="105" fill="currentColor" font-family="Inter, sans-serif" font-size="9" letter-spacing="2.5">ACQUITTAL FORM</text>
             </g>
-            <!-- Data chart (right of morph) -->
+
+            <!-- Frame 2: Spreadsheet grid (intermediate) -->
+            <g class="shift__sheet" data-morph="grid">
+              <rect x="40" y="60" width="400" height="320" rx="6" fill="#FBF5EC" stroke="currentColor" stroke-width="1.4" />
+              <rect x="40" y="60" width="400" height="32" rx="6" fill="currentColor" opacity="0.08" />
+              <line x1="40" y1="92" x2="440" y2="92" stroke="currentColor" stroke-width="1" />
+              <line x1="120" y1="60" x2="120" y2="380" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="200" y1="60" x2="200" y2="380" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="280" y1="60" x2="280" y2="380" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="360" y1="60" x2="360" y2="380" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="130" x2="440" y2="130" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="170" x2="440" y2="170" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="210" x2="440" y2="210" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="250" x2="440" y2="250" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="290" x2="440" y2="290" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <line x1="40" y1="330" x2="440" y2="330" stroke="currentColor" stroke-width="0.6" opacity="0.4" />
+              <rect x="44" y="100" width="60" height="6" rx="1" fill="currentColor" opacity="0.5" />
+              <rect x="124" y="100" width="50" height="6" rx="1" fill="currentColor" opacity="0.5" />
+              <rect x="204" y="100" width="40" height="6" rx="1" fill="currentColor" opacity="0.5" />
+              <rect x="284" y="100" width="55" height="6" rx="1" fill="currentColor" opacity="0.5" />
+              <rect x="364" y="100" width="40" height="6" rx="1" fill="currentColor" opacity="0.5" />
+              <rect x="44" y="140" width="50" height="6" rx="1" fill="currentColor" opacity="0.3" />
+              <rect x="124" y="140" width="60" height="6" rx="1" fill="currentColor" opacity="0.3" />
+              <rect x="204" y="140" width="35" height="6" rx="1" fill="currentColor" opacity="0.3" />
+              <rect x="44" y="180" width="55" height="6" rx="1" fill="currentColor" opacity="0.3" />
+              <rect x="124" y="180" width="45" height="6" rx="1" fill="currentColor" opacity="0.3" />
+              <rect x="284" y="180" width="50" height="6" rx="1" fill="currentColor" opacity="0.3" />
+            </g>
+
+            <!-- Frame 3: Dashboard (with KPI tile + bars + sparkline) -->
             <g class="shift__chart" data-morph="chart">
-              <rect x="60" y="80" width="280" height="240" rx="6" fill="none" stroke="currentColor" stroke-width="1.2" />
-              <line x1="80" y1="280" x2="320" y2="280" stroke="currentColor" stroke-width="1" />
-              <line x1="80" y1="100" x2="80" y2="280" stroke="currentColor" stroke-width="1" />
-              <rect x="110" y="220" width="28" height="60" fill="url(#shiftGrad)" />
-              <rect x="150" y="180" width="28" height="100" fill="url(#shiftGrad)" />
-              <rect x="190" y="150" width="28" height="130" fill="url(#shiftGrad)" />
-              <rect x="230" y="120" width="28" height="160" fill="url(#shiftGrad)" />
-              <rect x="270" y="140" width="28" height="140" fill="url(#shiftGrad)" />
-              <polyline points="124,225 164,185 204,155 244,125 284,145" fill="none" stroke="#1C1916" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <rect x="20" y="40" width="440" height="360" rx="10" fill="#FBF5EC" stroke="currentColor" stroke-width="1.4" />
+              <text x="36" y="68" fill="currentColor" font-family="Inter, sans-serif" font-size="9" letter-spacing="2.5">DIRD HOURS / WEEK</text>
+              <line x1="36" y1="78" x2="120" y2="78" stroke="#C27A1E" stroke-width="2" />
+
+              <!-- KPI tile -->
+              <g>
+                <rect x="36" y="92" width="160" height="76" rx="6" fill="#A6432A" />
+                <text x="48" y="118" fill="#F6EFE6" font-family="Fraunces, serif" font-size="11" font-style="italic" opacity="0.85">User growth</text>
+                <text x="48" y="155" fill="#F6EFE6" font-family="Fraunces, serif" font-size="32" font-weight="500">+205%</text>
+              </g>
+
+              <!-- Sparkline tile -->
+              <g>
+                <rect x="208" y="92" width="216" height="76" rx="6" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4" />
+                <text x="220" y="112" fill="currentColor" font-family="Inter, sans-serif" font-size="8" letter-spacing="2" opacity="0.6">TREND</text>
+                <polyline points="220,150 244,142 268,148 292,134 316,138 340,124 364,118 388,108 412,102" fill="none" stroke="#A6432A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="412" cy="102" r="3.5" fill="#C27A1E" />
+              </g>
+
+              <!-- Bar chart -->
+              <g>
+                <line x1="48" y1="380" x2="440" y2="380" stroke="currentColor" stroke-width="1" opacity="0.4" />
+                <line x1="48" y1="200" x2="48" y2="380" stroke="currentColor" stroke-width="1" opacity="0.4" />
+                <rect class="shift__bar" x="80" y="320" width="36" height="60" fill="url(#shiftGradSoft)" />
+                <rect class="shift__bar" x="136" y="280" width="36" height="100" fill="url(#shiftGradSoft)" />
+                <rect class="shift__bar" x="192" y="240" width="36" height="140" fill="url(#shiftGrad)" />
+                <rect class="shift__bar" x="248" y="220" width="36" height="160" fill="url(#shiftGrad)" />
+                <rect class="shift__bar" x="304" y="200" width="36" height="180" fill="url(#shiftGrad)" />
+                <rect class="shift__bar" x="360" y="220" width="36" height="160" fill="url(#shiftGrad)" />
+                <text x="98" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q1</text>
+                <text x="154" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q2</text>
+                <text x="210" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q3</text>
+                <text x="266" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q4</text>
+                <text x="322" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q5</text>
+                <text x="378" y="395" fill="currentColor" font-family="Inter, sans-serif" font-size="7" opacity="0.5">Q6</text>
+              </g>
             </g>
           </svg>
           <div class="shift__visual-caption">
             <span class="shift__visual-label">From</span>
             <span class="shift__visual-value">Manual processing</span>
-            <span class="shift__visual-arrow">→</span>
+            <span class="shift__visual-arrow" aria-hidden="true">&rarr;</span>
             <span class="shift__visual-label">To</span>
             <span class="shift__visual-value">Strategic oversight</span>
           </div>
@@ -444,78 +586,93 @@
       </div>
     </section>
 
+    <!-- 8. BEFORE / AFTER -->
+    <section class="compare" id="compare" data-rail="compare" aria-labelledby="compare-title">
+      <div class="compare__header">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">VIII</span>
+          <span class="chapter-mark__name">Contrast</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
+        <span class="eyebrow" data-reveal>Transformation</span>
+        <h2 id="compare-title" class="h2" data-split>From fragmented systems to unified oversight.</h2>
+      </div>
+
+      <div class="compare__grid">
+        <div class="compare__col compare__col--before" data-reveal>
+          <div class="compare__label">
+            <span class="compare__tag compare__tag--before">Before Bilum</span>
+          </div>
+          <ul class="compare__list">
+            <li>Fragmented spreadsheets and templates across offices</li>
+            <li>No centralised database for analysis</li>
+            <li>Staff &ldquo;felt defeated&rdquo; by the volume of work</li>
+            <li>Manual processing consumed daily effort</li>
+            <li>Mandate on paper, not exercised in practice</li>
+          </ul>
+        </div>
+
+        <div class="compare__divider" aria-hidden="true">
+          <svg class="compare__divider-svg compare__divider-svg--horiz" viewBox="0 0 80 24" preserveAspectRatio="none">
+            <path d="M2,12 C20,8 38,16 56,11 S70,12 76,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M68,5 L78,12 L68,19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="compare__divider-then" aria-hidden="true">Then</span>
+          <span class="compare__divider-now" aria-hidden="true">Now</span>
+        </div>
+
+        <div class="compare__col compare__col--after" data-reveal>
+          <div class="compare__label">
+            <span class="compare__tag compare__tag--after">After Bilum</span>
+          </div>
+          <ul class="compare__list">
+            <li>One platform across 64 Provincial and District Administrations<sup class="challenge__numbers-cite"><a href="#src-7">7</a></sup></li>
+            <li>1,023 subnational users in total, including 204 with provincial- and district-level admin access; 205% growth in electorate-level unique users in twelve months<sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup></li>
+            <li>Every project traceable: financial, physical and geographic data on one record</li>
+            <li><abbr title="Department of Information and Communication Technology">DICT</abbr>-certified, <abbr title="National Executive Council">NEC</abbr>-endorsed; standard SIP reporting pathway from the 2025/26 cycle<sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup></li>
+            <li>Acquittals reviewed against guidelines automatically&nbsp;— flags raised at upload, not months later</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- 9. IMPACT TILES -->
     <section class="impact" id="impact" data-rail="impact" aria-labelledby="impact-title">
       <div class="impact__header">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">IX</span>
+          <span class="chapter-mark__name">Impact</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
         <span class="eyebrow" data-reveal>The impact</span>
         <h2 id="impact-title" class="h2" data-split>Bilum&rsquo;s transformation went beyond technology.</h2>
-        <p class="lede" data-reveal>It fundamentally changed how DIRD operates.</p>
+        <p class="lede" data-reveal>Four outcomes ran beyond the platform itself.</p>
       </div>
       <div class="impact__grid">
         <article class="tile" data-reveal>
           <div class="tile__num">01</div>
           <h3 class="tile__title">Operational shift</h3>
-          <p class="tile__lede">From manual processing to strategic oversight.</p>
-          <p class="tile__body">Staff moved from data entry to analysis, verification and evidence-based decision-making.</p>
+          <p class="tile__lede">A new role for the desk.</p>
+          <p class="tile__body">Officers moved from data entry to analysis, verification and evidence-based decision-making.</p>
         </article>
         <article class="tile" data-reveal>
           <div class="tile__num">02</div>
           <h3 class="tile__title">Relationships</h3>
-          <p class="tile__lede">Improved trust with subnational partners.</p>
-          <p class="tile__body">More professional, consistent accountability across the system&nbsp;— reporting as a shared, credible process.</p>
+          <p class="tile__lede">Subnational partners report on a system, not on a relationship.</p>
+          <p class="tile__body">Consistent expectations and clearer rules of engagement&nbsp;— credibility built through shared process, not personal access.</p>
         </article>
         <article class="tile" data-reveal>
           <div class="tile__num">03</div>
           <h3 class="tile__title">Institutional role</h3>
           <p class="tile__lede">Restored DIRD&rsquo;s mandate.</p>
-          <p class="tile__body">From &ldquo;sleeping giant&rdquo; to active institution carrying out the oversight responsibilities it has long held.</p>
+          <p class="tile__body">DIRD is now actively carrying out the oversight responsibilities it has long held on paper.</p>
         </article>
         <article class="tile" data-reveal>
           <div class="tile__num">04</div>
           <h3 class="tile__title">System change</h3>
           <p class="tile__lede">Unified SIP oversight.</p>
-          <p class="tile__body">A centralised platform replacing fragmented spreadsheets&nbsp;— one source of truth for national monitoring.</p>
+          <p class="tile__body">One platform across 64 administrations&nbsp;— a single source of truth for national monitoring.</p>
         </article>
-      </div>
-    </section>
-
-    <!-- 10. CONFIDENCE -->
-    <section class="confidence" id="confidence" data-rail="confidence" aria-labelledby="confidence-title">
-      <div class="confidence__inner">
-        <span class="eyebrow" data-reveal>Institutional change</span>
-        <h2 id="confidence-title" class="h2" data-split>Restoring confidence in DIRD&rsquo;s role.</h2>
-
-        <div class="confidence__body">
-          <p class="body" data-reveal>
-            The case study makes clear that Bilum&rsquo;s impact was not confined to process improvement. It also helped restore visibility and confidence to DIRD&rsquo;s mandate. As systems improved, so too did the department&rsquo;s ability to play a more active and credible role in SIP oversight.
-          </p>
-          <p class="body" data-reveal>
-            Bilum strengthened DIRD&rsquo;s capacity to monitor reporting, contribute to national development dialogue, and exercise the oversight responsibilities it had long held on paper, but had struggled to fully operationalise in practice.
-          </p>
-          <p class="body" data-reveal>
-            This is what makes Bilum such a compelling institutional story. It is not simply about digitising a reporting function. It is about helping a department step more fully into the role it was meant to play. A department once described as a sleeping giant began to look and act more like the institution its mandate required.
-          </p>
-
-          <figure class="pullquote pullquote--marginalia" data-reveal>
-            <blockquote>&ldquo;Before Bilum, we accepted reports anyhow and gave feedback later; now everything is uploaded in the system, making our work transparent and traceable.&rdquo;</blockquote>
-            <figcaption><cite>— DIRD respondent, PIW</cite></figcaption>
-          </figure>
-
-          <figure class="pullquote pullquote--marginalia" data-reveal>
-            <blockquote>&ldquo;Regions are now competing, motivating officers to work efficiently and collaboratively.&rdquo;</blockquote>
-            <figcaption><cite>— PIW staff</cite></figcaption>
-          </figure>
-
-          <!-- TODO: confirm speaker name + title for caption below -->
-          <figure class="confidence__media" data-reveal>
-            <div class="confidence__media-photo" role="img" aria-label="PNG government representative speaking at the Bilum Helpdesk Transfer event, November 2025."></div>
-            <figcaption class="confidence__media-caption">
-              <strong>Institutional endorsement</strong>
-              A PNG government representative speaks at the Bilum Helpdesk Transfer event, Port Moresby, November 2025.
-              <span class="todo">[TODO: confirm name, title and department of speaker.]</span>
-            </figcaption>
-          </figure>
-        </div>
       </div>
     </section>
 
@@ -528,9 +685,14 @@
       </div>
     </aside>
 
-    <!-- 11. ROLLOUT -->
+    <!-- 10. ROLLOUT -->
     <section class="rollout" id="rollout" data-rail="rollout" aria-labelledby="rollout-title">
       <div class="rollout__header">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">X</span>
+          <span class="chapter-mark__name">Rollout</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
         <span class="eyebrow" data-reveal>Implementation progress</span>
         <h2 id="rollout-title" class="h2" data-split>From awareness to business-as-usual.</h2>
         <p class="lede" data-reveal>
@@ -539,6 +701,15 @@
       </div>
 
       <div class="rollout__path" role="group" aria-label="Rollout funnel">
+        <svg class="rollout__funnel" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="rolloutFunnelGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#A6432A" stop-opacity="0.16"></stop>
+              <stop offset="100%" stop-color="#C27A1E" stop-opacity="0.32"></stop>
+            </linearGradient>
+          </defs>
+          <path class="rollout__funnel-shape" d="M0,8 C400,12 800,48 1200,56 L1200,64 C800,72 400,108 0,112 Z" fill="url(#rolloutFunnelGrad)" />
+        </svg>
         <svg class="rollout__line" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0,40 L1200,40" fill="none" stroke="#A6432A" stroke-width="2" stroke-dasharray="6 6" class="rollout__path-line" />
         </svg>
@@ -566,55 +737,68 @@
             <p class="rollout__stage-body">Actively uploading projects into Bilum and applying core platform functions in practice.</p>
           </li>
           <li class="rollout__stage rollout__stage--final" data-reveal>
+            <div class="rollout__stage-photo rollout__stage-photo--circle" role="img" aria-label="Nuku District representative receiving a Bilum Awareness Workshop certificate."></div>
             <div class="rollout__stage-num" data-counter data-end="1" data-duration="1.4">0</div>
             <div class="rollout__stage-label">administration</div>
             <div class="rollout__stage-tag rollout__stage-tag--accent">Embedded</div>
             <h3 class="rollout__stage-title">Business as usual</h3>
-            <p class="rollout__stage-body">Nuku District is using Bilum routinely with minimal supervision to support SIP reporting and annual compliance requirements&nbsp;— with the next cohort close behind.</p>
-            <div class="rollout__stage-photo" role="img" aria-label="Nuku District representative receiving a Bilum Awareness Workshop certificate."></div>
+            <p class="rollout__stage-body">Nuku District has been routinely uploading SIP reports since onboarding. Reports that used to take weeks of photocopying and a road-and-air trip to Port Moresby now arrive in minutes.</p>
+            <figure class="rollout__stage-quote">
+              <blockquote>&ldquo;[Bilum] took away our frustration. We cut costs, reduced workload, and now we are reporting in real time.&rdquo;</blockquote>
+              <figcaption><cite>— Mr Nengai, Nuku District Administrator</cite></figcaption>
+            </figure>
           </li>
         </ol>
       </div>
 
       <p class="rollout__footnote body" data-reveal>
-        By the end of Phase 3, Bilum adoption showed clear progress from initial outreach to operational use, with a growing pipeline of administrations and users moving toward sustained platform use.
+        Awareness leads to skills. Skills lead to use. Use, eventually, leads to mandate. Phase 3 closed with the funnel still moving.
       </p>
     </section>
 
-    <!-- 12. ENGAGEMENT -->
+    <!-- 11. ENGAGEMENT -->
     <section class="engagement" id="engagement" data-rail="engagement" aria-labelledby="engagement-title">
       <div class="engagement__grid">
         <div class="engagement__headline">
+          <div class="chapter-mark" aria-hidden="true">
+            <span class="chapter-mark__num">XI</span>
+            <span class="chapter-mark__name">Users</span>
+            <span class="chapter-mark__rule"></span>
+          </div>
           <span class="eyebrow" data-reveal>User engagement</span>
-          <h2 id="engagement-title" class="h2" data-split>A growing cohort of trained and authorised users.</h2>
+          <h2 id="engagement-title" class="h2" data-split>204 super-users approved across 64 administrations. 205% growth in twelve months.</h2>
         </div>
 
         <div class="engagement__bignum">
           <div class="engagement__big" data-counter data-end="204" data-duration="1.8" data-reveal>0</div>
-          <div class="engagement__big-label">approved users at end of Phase&nbsp;3</div>
+          <div class="engagement__big-label">subnational super-users approved at end of Phase&nbsp;3<span class="engagement__big-aside">(province- and district-level)</span><sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup></div>
         </div>
 
         <div class="engagement__breakdown" data-reveal>
           <div class="engagement__bar" role="img" aria-label="Gender distribution: 125 male, 55 female, 24 unspecified">
-            <span class="engagement__bar-seg engagement__bar-seg--m" data-width="61.3"></span>
-            <span class="engagement__bar-seg engagement__bar-seg--f" data-width="27.0"></span>
-            <span class="engagement__bar-seg engagement__bar-seg--u" data-width="11.7"></span>
+            <span class="engagement__bar-seg engagement__bar-seg--m" data-width="61.3"><span class="engagement__bar-seg-label">M &middot; 61%</span></span>
+            <span class="engagement__bar-seg engagement__bar-seg--f" data-width="27.0"><span class="engagement__bar-seg-label">F &middot; 27%</span></span>
+            <span class="engagement__bar-seg engagement__bar-seg--u" data-width="11.7"><span class="engagement__bar-seg-label">U</span></span>
           </div>
           <ul class="engagement__legend">
-            <li><span class="engagement__swatch engagement__swatch--m"></span><strong>125</strong> Male</li>
-            <li><span class="engagement__swatch engagement__swatch--f"></span><strong>55</strong> Female</li>
-            <li><span class="engagement__swatch engagement__swatch--u"></span><strong>24</strong> Unspecified</li>
+            <li><span class="engagement__swatch engagement__swatch--m"></span><strong data-counter data-end="125" data-duration="1.4">0</strong> Male</li>
+            <li><span class="engagement__swatch engagement__swatch--f"></span><strong data-counter data-end="55" data-duration="1.4">0</strong> Female</li>
+            <li><span class="engagement__swatch engagement__swatch--u"></span><strong data-counter data-end="24" data-duration="1.4">0</strong> Unspecified</li>
           </ul>
         </div>
 
         <p class="engagement__note body" data-reveal>
-          Engagement is deepening, with users successfully navigating the platform and uploading projects. Timely account activation, role-based permissions and structured onboarding remain critical to converting outreach into sustained use.
+          Officers are using the platform. Sustaining that depends on the unglamorous work of timely account approvals, role permissions and structured onboarding&nbsp;— administrative, not technical.
         </p>
 
-        <!-- TODO: verify the specific Phase 4 actions before publishing. Currently describes common, plausible interventions; please confirm with the program team. -->
         <p class="engagement__note engagement__note--accountable body" data-reveal>
           <span class="engagement__note-flag">On the gender gap:</span>
-          Female users are currently under-represented (27%). Closing this gap is a stated priority for future rollout&nbsp;— including targeted outreach through provincial women&rsquo;s offices and gender-balanced training cohorts.
+          Female users currently make up 27%. Closing that gap is a stated Phase&nbsp;4 priority&nbsp;— including outreach through provincial women&rsquo;s offices and gender-balanced training cohorts.
+        </p>
+
+        <p class="engagement__note engagement__note--accountable body" data-reveal>
+          <span class="engagement__note-flag">On disability inclusion:</span>
+          Disability-disaggregated user data is not yet captured, and the platform has not been formally audited against WCAG accessibility standards. Both are Phase&nbsp;4 priorities, alongside disability-inclusive training cohorts and accessibility improvements identified through user research. Silence on this is the wrong posture; the right one is to name the gap and the plan.
         </p>
 
         <div class="engagement__photos" data-reveal>
@@ -624,9 +808,14 @@
       </div>
     </section>
 
-    <!-- 13. SYSTEM-LEVEL EMBEDDING -->
+    <!-- 12. SYSTEM-LEVEL EMBEDDING -->
     <section class="embedding" id="embedding" data-rail="embedding" aria-labelledby="embedding-title">
       <div class="embedding__header">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">XII</span>
+          <span class="chapter-mark__name">Embedding</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
         <span class="eyebrow" data-reveal>System-level embedding</span>
         <h2 id="embedding-title" class="h2" data-split>Institutionalising Bilum across government.</h2>
         <p class="lede" data-reveal>
@@ -638,71 +827,105 @@
         <article class="embed-card" data-reveal>
           <div class="embed-card__tag">Policy</div>
           <h3 class="embed-card__title">Government mandate</h3>
-          <p class="embed-card__body">Bilum&rsquo;s institutionalisation was strengthened through formal government backing, including National Executive Council (NEC) decisions that supported wider endorsement of the platform and created a stronger basis for its continued use and expansion.</p>
+          <p class="embed-card__body">National Executive Council (NEC) Decision 217 of 2025 endorsed Bilum as a national platform and approved the legislative pathway to mandate it&nbsp;— giving the platform a policy foundation that outlasts any single program cycle.</p>
           <p class="embed-card__source">Source: National Executive Council Decision 217/2025</p>
         </article>
-        <div class="embed-card__connector" aria-hidden="true"><span class="embed-card__arrow">→</span></div>
+        <div class="embed-card__connector" aria-hidden="true">
+          <svg class="embed-card__arrow" viewBox="0 0 56 24" preserveAspectRatio="none">
+            <path d="M2,12 C16,8 32,16 50,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M44,6 L52,12 L44,18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
 
         <article class="embed-card" data-reveal>
           <div class="embed-card__tag">Systems</div>
-          <h3 class="embed-card__title">DIRD systems and roles</h3>
-          <p class="embed-card__body">DIRD is increasingly embedding Bilum into its own systems through updated roles, governance arrangements, helpdesk functions and staff capability frameworks.</p>
-          <p class="embed-card__source">Source: DIRD organisational transition plan</p>
+          <h3 class="embed-card__title">Compliance and integration</h3>
+          <p class="embed-card__body">The Department of Information and Communication Technology (DICT) issued the Certificate of Compliance to Bilum, confirming alignment with GoPNG ICT standards and policy. The Department of Finance (DOF) is integrating Bilum with the Integrated Financial Management System (IFMS).</p>
+          <p class="embed-card__source">Source: DICT certification &middot; DOF integration workplan</p>
         </article>
-        <div class="embed-card__connector" aria-hidden="true"><span class="embed-card__arrow">→</span></div>
+        <div class="embed-card__connector" aria-hidden="true">
+          <svg class="embed-card__arrow" viewBox="0 0 56 24" preserveAspectRatio="none">
+            <path d="M2,12 C16,8 32,16 50,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M44,6 L52,12 L44,18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
 
         <article class="embed-card embed-card--accent" data-reveal>
           <div class="embed-card__tag">Practice</div>
           <h3 class="embed-card__title">Toward mandatory reporting</h3>
-          <p class="embed-card__body">Work is now underway to make Bilum the standard reporting pathway for districts, with the 2025/26 cycle marking an important transition toward mandatory use.</p>
+          <p class="embed-card__body">From the 2025/26 cycle, Bilum becomes the standard reporting pathway. Voluntary use is becoming required practice.</p>
           <p class="embed-card__source">Source: Bilum Final Completion Report, Feb 2026</p>
         </article>
       </div>
 
-      <!-- TODO: confirm names, titles and affiliations of the three people in the handover photo -->
       <div class="embedding__moment" data-reveal>
         <div class="embedding__moment-photo" role="img" aria-label="Bilum Helpdesk Transfer and Certificate Presentation ceremony, November 2025. An Australian government representative presents a traditional bilum bag to a senior PNG official, with a second PNG government leader."></div>
         <div class="embedding__moment-body">
           <span class="eyebrow">The handover</span>
           <h3>From program-led to government-led.</h3>
           <p>
-            On 5 November 2025, stewardship of the Bilum helpdesk was formally transferred to the Department of Implementation and Rural Development. The ceremony, attended by Australian and PNG government representatives, marked the beginning of Bilum operating as a government-run platform rather than a program-supported one.
-            <span class="todo">[TODO: confirm names and titles of the three people pictured, and any official comments made on the day.]</span>
+            On 5 November 2025, the Bilum helpdesk was formally transferred to DIRD. The platform now runs from inside the department it was built to serve.
           </p>
         </div>
       </div>
 
       <p class="embedding__close body" data-reveal>
-        Bilum is shifting from program-supported rollout to recognised government practice&nbsp;— the foundations that move digital reform from implementation into institutional change.
+        What started as a program is now a department&rsquo;s practice.
       </p>
+    </section>
+
+    <!-- 13. CONFIDENCE -->
+    <section class="confidence" id="confidence" data-rail="confidence" aria-labelledby="confidence-title">
+      <div class="confidence__inner">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">XIII</span>
+          <span class="chapter-mark__name">Confidence</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
+        <span class="eyebrow" data-reveal>Institutional change</span>
+        <h2 id="confidence-title" class="h2" data-split>Restoring confidence in DIRD&rsquo;s role.</h2>
+
+        <div class="confidence__body">
+          <p class="body dropcap" data-reveal>
+            Bilum&rsquo;s impact wasn&rsquo;t confined to process. As the systems of reporting tightened, so did the credibility of the institution running them.
+          </p>
+          <p class="body" data-reveal>
+            With Bilum in place, DIRD officers could monitor reporting in real time, contribute to national development dialogue, and exercise the oversight responsibilities the department had long held on paper but struggled to operationalise in practice.
+          </p>
+
+          <figure class="confidence__media" data-reveal>
+            <div class="confidence__media-photo" role="img" aria-label="The Hon. Ricky Morris MP, Member for Alotau, speaking at the Bilum Helpdesk Transfer event, November 2025."></div>
+            <figcaption class="confidence__media-caption">
+              <strong>Institutional endorsement</strong>
+              <blockquote class="confidence__media-quote">&ldquo;This platform will change the way we traditionally do things, especially in accountability and reporting. It ensures our leaders make decisions based on real data, not political pressures.&rdquo;</blockquote>
+              <cite class="confidence__media-cite">— The Hon. Ricky Morris MP, Member for Alotau, at the Bilum Helpdesk Transfer event, Port Moresby, November 2025.</cite>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
     <!-- 14. RELATIONSHIPS -->
     <section class="relationships" id="relationships" data-rail="relationships" aria-labelledby="relationships-title">
       <div class="relationships__inner">
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">XIV</span>
+          <span class="chapter-mark__name">Relationships</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
+        <div class="relationships__contactsheet" aria-hidden="true" data-reveal>
+          <div class="relationships__contact relationships__contact--a"></div>
+          <div class="relationships__contact relationships__contact--b"></div>
+          <div class="relationships__contact relationships__contact--c"></div>
+        </div>
         <span class="eyebrow" data-reveal>Relationships</span>
         <h2 id="relationships-title" class="h2" data-split>Changing relationships across the system.</h2>
-        <p class="body" data-reveal>
-          Bilum also appears to have changed the quality of interaction between DIRD and subnational partners. The platform improved relationships with subnational actors, who increasingly trust and rely on Bilum for reporting and compliance. It helped foster greater professionalism, consistency and accountability across those relationships.
+        <p class="body dropcap" data-reveal>
+          DIRD&rsquo;s relationship with subnational partners changed too. Provinces and districts increasingly trust and rely on Bilum for reporting and compliance, and engage DIRD as a partner rather than an auditor.
         </p>
         <p class="body" data-reveal>
-          Public sector systems are experienced relationally as much as technically. When expectations are inconsistent and reporting is unclear, trust erodes. When systems become more consistent and more credible, relationships can begin to stabilise around a clearer shared process. Bilum has supported that shift&nbsp;— from fragmented and frustrating interactions toward a more trusted and professional reporting environment.
+          Reporting is a relationship. Inconsistent expectations corrode trust; consistent ones rebuild it. Bilum gave both sides the same shape to work to&nbsp;— from fragmented and frustrating interactions to a more professional, more accountable working rhythm.
         </p>
-
-        <div class="relationships__triplet">
-          <div class="relationships__item" data-reveal>
-            <h3 class="h4">Improved relationships</h3>
-            <p>Subnational partners increasingly trust and rely on Bilum for reporting and compliance.</p>
-          </div>
-          <div class="relationships__item" data-reveal>
-            <h3 class="h4">Greater professionalism</h3>
-            <p>More consistent expectations and clearer shared processes across the system.</p>
-          </div>
-          <div class="relationships__item" data-reveal>
-            <h3 class="h4">Stabilised interactions</h3>
-            <p>From fragmented and frustrating to trusted and professional.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -710,66 +933,58 @@
     <section class="method" id="method" data-rail="method" aria-labelledby="method-title">
       <div class="method__grid">
         <div class="method__sticky">
+          <div class="chapter-mark" aria-hidden="true">
+            <span class="chapter-mark__num">XV</span>
+            <span class="chapter-mark__name">Method</span>
+            <span class="chapter-mark__rule"></span>
+          </div>
           <span class="eyebrow" data-reveal>The method</span>
-          <h2 id="method-title" class="h2" data-split>More than a digital tool.</h2>
+          <h2 id="method-title" class="h2" data-split>Looking back at the way of working.</h2>
           <p class="body method__intro" data-reveal>
-            Three features explain why this work succeeded&nbsp;— and what digital reform in complex public sector environments really requires.
+            Three things mattered to how we worked. Not three things that worked&nbsp;— three things we&rsquo;d insist on next time.
           </p>
 
-          <!-- TODO: confirm name + title for the DIRD officer pictured -->
           <aside class="method__aside" data-reveal>
-            <div class="method__aside-photo" role="img" aria-label="A DIRD officer in Departmental uniform in conversation with a colleague."></div>
+            <div class="method__aside-photo" role="img" aria-label="DIRD officers in conversation during a co-design session."></div>
             <div class="method__aside-caption">
               <strong>On the ground</strong>
               Every iteration of Bilum was tested against how the work actually happens inside DIRD.
-              <span class="todo">[TODO: confirm officer&rsquo;s name and title.]</span>
             </div>
           </aside>
         </div>
         <ol class="method__list">
-          <!-- TODO: strengthen each item with one concrete example. Suggested pattern:
-               "For example, during Phase 2 we rebuilt [X workflow] three times after
-               workshops with PIW officers surfaced that [Y]." -->
           <li class="method__item" data-reveal>
             <span class="method__num">01</span>
             <h3 class="h3">Institutional, not just technical.</h3>
-            <p>The program understood that change would not come from technology alone, but from supporting institutional practices, roles and confidence. That meant working at the level of systems, people and process&nbsp;— not simply installing software.</p>
-            <!-- TODO: add one specific institutional change Bilum catalysed
-                 (a new role, a governance arrangement, an SOP, a helpdesk function). -->
+            <p>34 DIRD officers and 1,023 subnational users completed training; 19 DIRD officers reached competency against a co-designed framework.<sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup> The helpdesk that runs the platform now sits inside DIRD&nbsp;— not in a vendor contract. We held the framework; DIRD held the work.</p>
           </li>
           <li class="method__item" data-reveal>
             <span class="method__num">02</span>
             <h3 class="h3">Iterative and co-designed.</h3>
-            <p>Bilum was developed iteratively and collaboratively with government users. That approach helped ensure the platform fit the reality of DIRD&rsquo;s operations, and fostered a sense of ownership and trust that was critical to sustained use.</p>
-            <!-- TODO: add one specific "we rebuilt X after workshops surfaced Y" example. -->
+            <p>132 platform changes shipped in Phase 3 alone&nbsp;— every one of them surfaced by user testing or PIW feedback.<sup class="challenge__numbers-cite"><a href="#src-6">6</a></sup> The submission flow released in 2025 is the third version of the one shipped in 2022.</p>
           </li>
           <li class="method__item" data-reveal>
             <span class="method__num">03</span>
             <h3 class="h3">Embedded partnership.</h3>
-            <p>Catalpa worked closely alongside government throughout&nbsp;— as an embedded partner, not a distant contractor. That proximity and responsiveness helped shape a more effective, more contextually grounded result.</p>
-            <!-- TODO: name the time commitment ("Catalpa staff sat inside DIRD for
-                 X months across Phase 2 and Phase 3") or a specific artefact produced. -->
+            <p>Catalpa staff sat inside DIRD across Phase&nbsp;2 and Phase&nbsp;3, working on the legal SIP cycle, not a vendor calendar. By Phase&nbsp;3, DIRD officers led the rollout missions; Catalpa was beside them, not in front of them.</p>
           </li>
         </ol>
       </div>
 
       <figure class="method__quote pullquote pullquote--closing" data-reveal>
-        <blockquote>&ldquo;Change would not come from technology alone, but from supporting institutional practices, roles and confidence.&rdquo;</blockquote>
-        <figcaption><cite>— Bilum Implementation Team</cite></figcaption>
+        <blockquote>&ldquo;Catalpa didn&rsquo;t hold back anything&nbsp;— they gave us everything. And they made sure Bilum was always ours.&rdquo;</blockquote>
+        <figcaption><cite>— Senior DIRD officer</cite></figcaption>
       </figure>
     </section>
 
-    <!-- 16. HONESTLY — What was harder than expected (scaffold) -->
+    <!-- 16. HONESTLY — What was harder than expected -->
     <section class="honest" id="honest" data-rail="honest" aria-labelledby="honest-title">
       <div class="honest__inner">
-        <div class="draft-banner" data-draft>
-          <span class="draft-banner__tag">Draft</span>
-          <span class="draft-banner__note">
-            Three plausible candidate challenges are drafted below based on common patterns in public-sector digital reform.
-            Please verify with the program team, refine or replace, then remove this banner. An honest &ldquo;what was hard&rdquo; section materially strengthens the case study&rsquo;s credibility.
-          </span>
+        <div class="chapter-mark" aria-hidden="true">
+          <span class="chapter-mark__num">XVI</span>
+          <span class="chapter-mark__name">Honestly</span>
+          <span class="chapter-mark__rule"></span>
         </div>
-
         <span class="eyebrow" data-reveal>Honestly</span>
         <h2 id="honest-title" class="h2" data-split>What was harder than we expected.</h2>
         <p class="lede" data-reveal>
@@ -779,26 +994,30 @@
         <ol class="honest__list">
           <li class="honest__item" data-reveal>
             <span class="honest__num">01</span>
-            <h3 class="h3">Account activation and the administrative chain.</h3>
+            <h3 class="h3">DIRD wasn&rsquo;t in the room early enough.</h3>
             <p>
-              Converting outreach into sustained use depended on timely account approvals. Delays in activation&nbsp;— administrative, not technical&nbsp;— meant trained officers sometimes went weeks between training and first upload, eroding momentum. Phase 3 streamlined the approval pipeline, but it remains a variable we watch closely.
-              <span class="todo">[DRAFT — please verify specifics with the team.]</span>
+              DIRD&rsquo;s full participation in shaping the platform didn&rsquo;t begin until 2023, when the rollout started. Phase&nbsp;1 and Phase&nbsp;2 features that PIW staff would have known to ask for had to be retrofitted later. Co-design works in proportion to who&rsquo;s in the room&nbsp;— and we didn&rsquo;t get that ratio right until Phase&nbsp;3.
             </p>
           </li>
           <li class="honest__item" data-reveal>
             <span class="honest__num">02</span>
-            <h3 class="h3">Connectivity and the last-mile reality.</h3>
+            <h3 class="h3">The backend is still ours.</h3>
             <p>
-              Parts of the country have unreliable internet. Features designed assuming persistent connection needed to be redesigned for intermittent use&nbsp;— offline submission, deferred sync, lightweight views. This took longer than the initial scope suggested and reshaped parts of Phase 2.
-              <span class="todo">[DRAFT — please verify specifics with the team.]</span>
+              DIRD officers run the front end with confidence. Backend engineering, hosting and major upgrades still sit with Catalpa. Closing that gap&nbsp;— building in-house ICT capability inside DIRD&nbsp;— is the work of Phase&nbsp;4, not a closed chapter of Phase&nbsp;3.
             </p>
           </li>
           <li class="honest__item" data-reveal>
             <span class="honest__num">03</span>
-            <h3 class="h3">Program pace vs institutional pace.</h3>
+            <h3 class="h3">Three clocks, not two.</h3>
             <p>
-              Bilum&rsquo;s timeline was set by a program cycle. DIRD&rsquo;s timeline is set by its legal mandate and annual calendar. Aligning the two took ongoing negotiation, and shaped how we scoped what &ldquo;embedding&rdquo; actually meant beyond the end of Phase 3.
-              <span class="todo">[DRAFT — please verify specifics with the team.]</span>
+              The program ran on a phase calendar. DIRD runs on the legal SIP cycle. Government data sharing runs on MoUs that took years to negotiate. The handover that closed Phase&nbsp;3 was shaped less by our delivery rhythm than by all three of those clocks running at once.
+            </p>
+          </li>
+          <li class="honest__item" data-reveal>
+            <span class="honest__num">04</span>
+            <h3 class="h3">Continuity, not just compliance.</h3>
+            <p>
+              NEC Decision 217/2025 endorsed Bilum, but ministerial transitions, senior turnover and political cycles are part of working in any government system. The platform also runs on government infrastructure that is itself maturing&nbsp;— connectivity, hosting, data security. Phase&nbsp;4 includes building redundancy into both the technical and political layers; we don&rsquo;t underestimate either.
             </p>
           </li>
         </ol>
@@ -812,26 +1031,85 @@
     <!-- 17. LEGACY -->
     <section class="legacy" id="legacy" data-rail="legacy" aria-labelledby="legacy-title">
       <div class="legacy__inner">
+        <div class="chapter-mark chapter-mark--light" aria-hidden="true">
+          <span class="chapter-mark__num">XVII</span>
+          <span class="chapter-mark__name">Legacy</span>
+          <span class="chapter-mark__rule"></span>
+        </div>
         <span class="eyebrow eyebrow--light" data-reveal>Looking forward</span>
         <h2 id="legacy-title" class="h2 h2--light h2--display" data-split>The deeper impact.</h2>
         <p class="lede lede--light" data-reveal>
-          Bilum demonstrated what is possible when reform efforts are built around people, systems and institutions&nbsp;— not simply tools.
+          Bilum showed what becomes possible when reform sits inside an institution, not on top of it.
+        </p>
+        <p class="body body--light dropcap dropcap--light" data-reveal>
+          It helped reframe expectations about what digital governance work could achieve in Papua New Guinea, and how it should be designed and delivered. That reframing had practical consequences inside the partnership: it shaped how the team approaches institutional strengthening, and contributed to a more grounded understanding of how digital systems can support public sector accountability&nbsp;— particularly in contexts where reform must run on government&rsquo;s clock, not a delivery calendar.
         </p>
         <p class="body body--light" data-reveal>
-          It helped reframe expectations about what digital governance projects could achieve in Papua New Guinea, and how they should be designed and delivered. That reframing had practical consequences: it informed subsequent governance platforms, shaped new approaches to institutional strengthening, and contributed to a more grounded, more patient understanding of how digital systems can support public sector accountability.
+          In Nuku, Jillian Mase used to bind hundreds of pages of SIP reports into sector booklets, watch them set off on a seven-hour road trip to Wewak, then a flight to Port Moresby. They were lost in heavy rain. They were lost in staff turnover. Now an acquittal she uploads in Nuku is visible to a national administrator in minutes&nbsp;— traceable to a project, ready for analysis. Multiply that by 64 administrations. Multiply that by years. That&rsquo;s what Bilum left behind.<sup class="legacy__cite"><a href="#src-3">3</a></sup>
         </p>
-        <figure class="pullquote pullquote--legacy" data-reveal>
-          <blockquote>&ldquo;Bilum demonstrated what was possible when reform efforts were built around people, systems and institutions&nbsp;— not simply tools.&rdquo;</blockquote>
-          <figcaption><cite>— Bilum Completion Report, Feb 2026</cite></figcaption>
-        </figure>
-        <p class="body body--light" data-reveal>
-          In that sense, Bilum&rsquo;s legacy is not only what it achieved inside DIRD. It is also what it helped others imagine about the role of digital tools in public sector reform&nbsp;— and how such reform might be pursued more effectively in the future.
+
+        <div class="fleuron fleuron--light" aria-hidden="true" data-reveal>
+          <span class="fleuron__dot"></span>
+          <span class="fleuron__dot fleuron__dot--center"></span>
+          <span class="fleuron__dot"></span>
+        </div>
+
+        <p class="legacy__signoff" data-reveal>
+          <span>DIRD</span>
+          <span class="legacy__signoff-sep" aria-hidden="true">&middot;</span>
+          <span>Bilum</span>
+          <span class="legacy__signoff-sep" aria-hidden="true">&middot;</span>
+          <span>Catalpa</span>
         </p>
       </div>
     </section>
 
-    <!-- 18. FOOTER -->
+    <!-- 18. CODA — VIDEO CAPSTONE -->
+    <section class="coda" id="coda" aria-labelledby="coda-title">
+      <div class="coda__inner">
+        <span class="eyebrow" data-reveal>Watch</span>
+        <h2 id="coda-title" class="h2 h2--display" data-split>The story, in their own words.</h2>
+        <p class="lede coda__lede" data-reveal>
+          A short film made with DIRD officers, district users and the partnership team. Produced and filmed by Catalpa International.
+        </p>
+
+        <figure class="coda__player" data-reveal>
+          <button
+            type="button"
+            class="coda__facade"
+            data-video-id="My-8UQ-b51w"
+            data-video-title="Bilum &mdash; Case Study"
+            aria-label="Play the Bilum case study video on YouTube"
+          >
+            <img
+              class="coda__poster"
+              src="https://i.ytimg.com/vi/My-8UQ-b51w/maxresdefault.jpg"
+              onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/My-8UQ-b51w/hqdefault.jpg'"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="720"
+            />
+            <span class="coda__poster-veil" aria-hidden="true"></span>
+            <span class="coda__play" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <circle cx="32" cy="32" r="31" fill="currentColor"></circle>
+                <path d="M27 22L44 32L27 42V22Z" fill="#1c1916"></path>
+              </svg>
+            </span>
+          </button>
+          <figcaption class="coda__caption">
+            <strong>Bilum &mdash; Case Study</strong>
+            <span>Catalpa International &middot; <a href="https://www.youtube.com/watch?v=My-8UQ-b51w" rel="noopener" target="_blank">Watch on YouTube</a></span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 19. FOOTER -->
     <footer class="footer" id="footer">
+      <p class="footer__tagline" data-reveal>Quietly, durably, with the people doing the work.</p>
       <div class="footer__top">
         <div class="footer__meta">
           <span class="eyebrow eyebrow--light">Case study</span>
@@ -839,8 +1117,10 @@
           <p class="footer__sub">A partnership between the PNG Department of Implementation and Rural Development (DIRD) and Catalpa International.</p>
         </div>
         <div class="footer__cta">
-          <a class="btn btn--primary" href="mailto:hello@catalpa.io?subject=Bilum%20case%20study">Planning similar reform? Let&rsquo;s compare notes</a>
-          <button class="btn btn--ghost" type="button" data-totop aria-label="Back to top">Back to top ↑</button>
+          <button class="btn btn--ghost" type="button" data-totop aria-label="Back to top">
+            <span class="btn__label">Back to top</span>
+            <span class="btn__arrow btn__arrow--up" aria-hidden="true">&uarr;</span>
+          </button>
         </div>
       </div>
 
@@ -850,16 +1130,25 @@
           <ul>
             <li>Phase 3 · Jan 2023&nbsp;— Dec 2025</li>
             <li>Final report: February 2026</li>
-            <li>Funded under the Decentralisation &amp; Citizen Participation Partnership (DCPP)</li>
+            <li>Funded under the Building Community Engagement Program (BCEP)</li>
           </ul>
         </div>
         <div>
           <h3 class="footer__h">Sources</h3>
-          <ul>
+          <ul class="footer__sources-internal">
             <li>Bilum Final Completion Report (Feb 2026)</li>
             <li>DIRD Case Study Report (Nov 2025)</li>
             <li>Independent Rapid Review &mdash; Bilum Program</li>
           </ul>
+          <ol class="footer__sources-cited" aria-label="Cited external sources">
+            <li id="src-1">Auditor General&rsquo;s Office of Papua New Guinea, <em>Provincial Audits 2017</em>, via Laveil, &ldquo;<a href="https://devpolicy.org/subnational-governance-in-png-poor-and-worsening-20240318/" rel="noopener" target="_blank">Subnational governance in PNG &mdash; poor and worsening</a>&rdquo;, Devpolicy Blog, 18 March 2024.</li>
+            <li id="src-2">Laveil, &ldquo;<a href="https://devpolicy.org/new-data-on-sub-national-governments-in-png-20241218/" rel="noopener" target="_blank">New data on sub-national governments in PNG</a>&rdquo;, Development Policy Centre, 18 December 2024.</li>
+            <li id="src-3">Mase, J., quoted in &ldquo;<a href="https://lekmak.com/2025/06/05/all-in-a-bilum-the-digital-transformation-in-nuku-district/" rel="noopener" target="_blank">All in a Bilum: The Digital Transformation in Nuku District</a>&rdquo;, Lekmak, 5 June 2025.</li>
+            <li id="src-4">DSIP sector allocation guidelines (PNG Department of Implementation and Rural Development), summarised by <a href="https://ddawatch.gn.apc.org/node/125" rel="noopener" target="_blank">DDA Watch</a>; service-delivery use of funds discussed in &ldquo;<a href="https://pngicentral.org/reports/gazelle-audit-a-window-into-the-widespread-failings-of-dsip-system/" rel="noopener" target="_blank">Fraud, corruption and mismanagement &mdash; a window into the failings of the DSIP system</a>&rdquo;, PNGi Central. 2025 quantum confirmed by &ldquo;<a href="https://www.ddawatch.org/node/1407" rel="noopener" target="_blank">DSIP receives K960 Million in 2025 Budget</a>&rdquo;, DDA Watch.</li>
+            <li id="src-5">Laveil, &ldquo;<a href="https://devpolicy.org/subnational-government-spending-in-png-20240313/" rel="noopener" target="_blank">Subnational government spending in PNG</a>&rdquo;, Devpolicy Blog, 13 March 2024.</li>
+            <li id="src-6">Bilum Final Completion Report (February 2026). User counts, training totals, platform-change counts and rollout figures cited from the program&rsquo;s monitoring, evaluation and learning data.</li>
+            <li id="src-7">DIRD Case Study Report (November 2025). Department of Implementation and Rural Development assessment of Bilum&rsquo;s institutional impact and engagement across 64 Provincial and District Administrations.</li>
+          </ol>
         </div>
         <div>
           <h3 class="footer__h">Acknowledgements</h3>
@@ -867,6 +1156,10 @@
             <li>DIRD Senior Management &amp; Assistant Secretaries</li>
             <li>Project Implementation Wing (PIW) officers</li>
             <li>District and Provincial administrations across PNG</li>
+            <li>Department of Treasury, Department of Finance, and Department of Information &amp; Communication Technology (PNG)</li>
+            <li>National Executive Council (PNG)</li>
+            <li>Department of Foreign Affairs and Trade (Australia)</li>
+            <li>Australian High Commission, Port Moresby</li>
           </ul>
         </div>
       </div>
@@ -879,6 +1172,6 @@
 
   </main>
 
-  <script src="app.js" defer></script>
+  <script src="app.js?v=narrative-22" defer></script>
 </body>
 </html>
